@@ -1,0 +1,9 @@
+// Copyright 2016-2024, University of Colorado Boulder
+
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import Namespace from '../../phet-core/js/Namespace.js';
+export default new Namespace('twixt');
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJOYW1lc3BhY2UiXSwic291cmNlcyI6WyJ0d2l4dC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAxNi0yMDI0LCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuaW1wb3J0IE5hbWVzcGFjZSBmcm9tICcuLi8uLi9waGV0LWNvcmUvanMvTmFtZXNwYWNlLmpzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IG5ldyBOYW1lc3BhY2UoICd0d2l4dCcgKTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPQSxTQUFTLE1BQU0saUNBQWlDO0FBRXZELGVBQWUsSUFBSUEsU0FBUyxDQUFFLE9BQVEsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

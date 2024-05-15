@@ -1,0 +1,21 @@
+// Copyright 2017, University of Colorado Boulder
+
+/**
+ * Returns the branch (if any) that the repository is on.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const execute = require('./execute');
+
+/**
+ * Returns the branch (if any) that the repository is on.
+ * @public
+ *
+ * @param {string} repo - The repository name
+ * @returns {Promise} - Resolves to the branch name (or the empty string if not on a branch)
+ */
+module.exports = function (repo) {
+  return execute('git', ['symbolic-ref', '-q', 'HEAD'], `../${repo}`).then(stdout => stdout.trim().replace('refs/heads/', ''));
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJleGVjdXRlIiwicmVxdWlyZSIsIm1vZHVsZSIsImV4cG9ydHMiLCJyZXBvIiwidGhlbiIsInN0ZG91dCIsInRyaW0iLCJyZXBsYWNlIl0sInNvdXJjZXMiOlsiZ2V0QnJhbmNoLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE3LCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBSZXR1cm5zIHRoZSBicmFuY2ggKGlmIGFueSkgdGhhdCB0aGUgcmVwb3NpdG9yeSBpcyBvbi5cclxuICpcclxuICogQGF1dGhvciBKb25hdGhhbiBPbHNvbiA8am9uYXRoYW4ub2xzb25AY29sb3JhZG8uZWR1PlxyXG4gKi9cclxuXHJcbmNvbnN0IGV4ZWN1dGUgPSByZXF1aXJlKCAnLi9leGVjdXRlJyApO1xyXG5cclxuLyoqXHJcbiAqIFJldHVybnMgdGhlIGJyYW5jaCAoaWYgYW55KSB0aGF0IHRoZSByZXBvc2l0b3J5IGlzIG9uLlxyXG4gKiBAcHVibGljXHJcbiAqXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSByZXBvIC0gVGhlIHJlcG9zaXRvcnkgbmFtZVxyXG4gKiBAcmV0dXJucyB7UHJvbWlzZX0gLSBSZXNvbHZlcyB0byB0aGUgYnJhbmNoIG5hbWUgKG9yIHRoZSBlbXB0eSBzdHJpbmcgaWYgbm90IG9uIGEgYnJhbmNoKVxyXG4gKi9cclxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbiggcmVwbyApIHtcclxuICByZXR1cm4gZXhlY3V0ZSggJ2dpdCcsIFsgJ3N5bWJvbGljLXJlZicsICctcScsICdIRUFEJyBdLCBgLi4vJHtyZXBvfWAgKS50aGVuKCBzdGRvdXQgPT4gc3Rkb3V0LnRyaW0oKS5yZXBsYWNlKCAncmVmcy9oZWFkcy8nLCAnJyApICk7XHJcbn07Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLE1BQU1BLE9BQU8sR0FBR0MsT0FBTyxDQUFFLFdBQVksQ0FBQzs7QUFFdEM7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQUMsTUFBTSxDQUFDQyxPQUFPLEdBQUcsVUFBVUMsSUFBSSxFQUFHO0VBQ2hDLE9BQU9KLE9BQU8sQ0FBRSxLQUFLLEVBQUUsQ0FBRSxjQUFjLEVBQUUsSUFBSSxFQUFFLE1BQU0sQ0FBRSxFQUFHLE1BQUtJLElBQUssRUFBRSxDQUFDLENBQUNDLElBQUksQ0FBRUMsTUFBTSxJQUFJQSxNQUFNLENBQUNDLElBQUksQ0FBQyxDQUFDLENBQUNDLE9BQU8sQ0FBRSxhQUFhLEVBQUUsRUFBRyxDQUFFLENBQUM7QUFDdEksQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

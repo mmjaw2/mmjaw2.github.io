@@ -1,0 +1,44 @@
+// Copyright 2013-2024, University of Colorado Boulder
+
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import './BinPacker.js';
+import './Bounds2.js';
+import './Bounds3.js';
+import './Combination.js';
+import './CompletePiecewiseLinearFunction.js';
+import './Complex.js';
+import './ConvexHull2.js';
+import './DampedHarmonic.js';
+import './DelaunayTriangulation.js';
+import './Dimension2.js';
+import dot from './dot.js';
+import './EigenvalueDecomposition.js';
+import './LinearFunction.js';
+import './LUDecomposition.js';
+import './Matrix.js';
+import './Matrix3.js';
+import './Matrix4.js';
+import './MatrixOps3.js';
+import './Permutation.js';
+import './Plane3.js';
+import './QRDecomposition.js';
+import './Quaternion.js';
+import './Random.js';
+import './Range.js';
+import './Ray2.js';
+import './Ray3.js';
+import './Rectangle.js';
+import './SingularValueDecomposition.js';
+import './Sphere3.js';
+import './Transform3.js';
+import './Transform4.js';
+import './UnivariatePolynomial.js';
+import './Utils.js';
+import './Vector2.js';
+import './Vector3.js';
+import './Vector4.js';
+export default dot;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJkb3QiXSwic291cmNlcyI6WyJtYWluLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDEzLTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5pbXBvcnQgJy4vQmluUGFja2VyLmpzJztcclxuaW1wb3J0ICcuL0JvdW5kczIuanMnO1xyXG5pbXBvcnQgJy4vQm91bmRzMy5qcyc7XHJcbmltcG9ydCAnLi9Db21iaW5hdGlvbi5qcyc7XHJcbmltcG9ydCAnLi9Db21wbGV0ZVBpZWNld2lzZUxpbmVhckZ1bmN0aW9uLmpzJztcclxuaW1wb3J0ICcuL0NvbXBsZXguanMnO1xyXG5pbXBvcnQgJy4vQ29udmV4SHVsbDIuanMnO1xyXG5pbXBvcnQgJy4vRGFtcGVkSGFybW9uaWMuanMnO1xyXG5pbXBvcnQgJy4vRGVsYXVuYXlUcmlhbmd1bGF0aW9uLmpzJztcclxuaW1wb3J0ICcuL0RpbWVuc2lvbjIuanMnO1xyXG5pbXBvcnQgZG90IGZyb20gJy4vZG90LmpzJztcclxuaW1wb3J0ICcuL0VpZ2VudmFsdWVEZWNvbXBvc2l0aW9uLmpzJztcclxuaW1wb3J0ICcuL0xpbmVhckZ1bmN0aW9uLmpzJztcclxuaW1wb3J0ICcuL0xVRGVjb21wb3NpdGlvbi5qcyc7XHJcbmltcG9ydCAnLi9NYXRyaXguanMnO1xyXG5pbXBvcnQgJy4vTWF0cml4My5qcyc7XHJcbmltcG9ydCAnLi9NYXRyaXg0LmpzJztcclxuaW1wb3J0ICcuL01hdHJpeE9wczMuanMnO1xyXG5pbXBvcnQgJy4vUGVybXV0YXRpb24uanMnO1xyXG5pbXBvcnQgJy4vUGxhbmUzLmpzJztcclxuaW1wb3J0ICcuL1FSRGVjb21wb3NpdGlvbi5qcyc7XHJcbmltcG9ydCAnLi9RdWF0ZXJuaW9uLmpzJztcclxuaW1wb3J0ICcuL1JhbmRvbS5qcyc7XHJcbmltcG9ydCAnLi9SYW5nZS5qcyc7XHJcbmltcG9ydCAnLi9SYXkyLmpzJztcclxuaW1wb3J0ICcuL1JheTMuanMnO1xyXG5pbXBvcnQgJy4vUmVjdGFuZ2xlLmpzJztcclxuaW1wb3J0ICcuL1Npbmd1bGFyVmFsdWVEZWNvbXBvc2l0aW9uLmpzJztcclxuaW1wb3J0ICcuL1NwaGVyZTMuanMnO1xyXG5pbXBvcnQgJy4vVHJhbnNmb3JtMy5qcyc7XHJcbmltcG9ydCAnLi9UcmFuc2Zvcm00LmpzJztcclxuaW1wb3J0ICcuL1VuaXZhcmlhdGVQb2x5bm9taWFsLmpzJztcclxuaW1wb3J0ICcuL1V0aWxzLmpzJztcclxuaW1wb3J0ICcuL1ZlY3RvcjIuanMnO1xyXG5pbXBvcnQgJy4vVmVjdG9yMy5qcyc7XHJcbmltcG9ydCAnLi9WZWN0b3I0LmpzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGRvdDsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPLGdCQUFnQjtBQUN2QixPQUFPLGNBQWM7QUFDckIsT0FBTyxjQUFjO0FBQ3JCLE9BQU8sa0JBQWtCO0FBQ3pCLE9BQU8sc0NBQXNDO0FBQzdDLE9BQU8sY0FBYztBQUNyQixPQUFPLGtCQUFrQjtBQUN6QixPQUFPLHFCQUFxQjtBQUM1QixPQUFPLDRCQUE0QjtBQUNuQyxPQUFPLGlCQUFpQjtBQUN4QixPQUFPQSxHQUFHLE1BQU0sVUFBVTtBQUMxQixPQUFPLDhCQUE4QjtBQUNyQyxPQUFPLHFCQUFxQjtBQUM1QixPQUFPLHNCQUFzQjtBQUM3QixPQUFPLGFBQWE7QUFDcEIsT0FBTyxjQUFjO0FBQ3JCLE9BQU8sY0FBYztBQUNyQixPQUFPLGlCQUFpQjtBQUN4QixPQUFPLGtCQUFrQjtBQUN6QixPQUFPLGFBQWE7QUFDcEIsT0FBTyxzQkFBc0I7QUFDN0IsT0FBTyxpQkFBaUI7QUFDeEIsT0FBTyxhQUFhO0FBQ3BCLE9BQU8sWUFBWTtBQUNuQixPQUFPLFdBQVc7QUFDbEIsT0FBTyxXQUFXO0FBQ2xCLE9BQU8sZ0JBQWdCO0FBQ3ZCLE9BQU8saUNBQWlDO0FBQ3hDLE9BQU8sY0FBYztBQUNyQixPQUFPLGlCQUFpQjtBQUN4QixPQUFPLGlCQUFpQjtBQUN4QixPQUFPLDJCQUEyQjtBQUNsQyxPQUFPLFlBQVk7QUFDbkIsT0FBTyxjQUFjO0FBQ3JCLE9BQU8sY0FBYztBQUNyQixPQUFPLGNBQWM7QUFFckIsZUFBZUEsR0FBRyIsImlnbm9yZUxpc3QiOltdfQ==

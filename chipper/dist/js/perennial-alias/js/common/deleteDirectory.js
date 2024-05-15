@@ -1,0 +1,23 @@
+// Copyright 2020, University of Colorado Boulder
+
+/**
+ * Deletes a path recursively
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const execute = require('./execute');
+const winston = require('../../../../../../perennial-alias/node_modules/winston');
+
+/**
+ * Deletes a path recursively
+ * @public
+ *
+ * @param {string} path - The path to delete recursively
+ * @returns {Promise}
+ */
+module.exports = function (path) {
+  winston.info(`Deleting directory ${path}`);
+  return execute('rm', ['-Rf', path], '../');
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJleGVjdXRlIiwicmVxdWlyZSIsIndpbnN0b24iLCJtb2R1bGUiLCJleHBvcnRzIiwicGF0aCIsImluZm8iXSwic291cmNlcyI6WyJkZWxldGVEaXJlY3RvcnkuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjAsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIERlbGV0ZXMgYSBwYXRoIHJlY3Vyc2l2ZWx5XHJcbiAqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5jb25zdCBleGVjdXRlID0gcmVxdWlyZSggJy4vZXhlY3V0ZScgKTtcclxuY29uc3Qgd2luc3RvbiA9IHJlcXVpcmUoICd3aW5zdG9uJyApO1xyXG5cclxuLyoqXHJcbiAqIERlbGV0ZXMgYSBwYXRoIHJlY3Vyc2l2ZWx5XHJcbiAqIEBwdWJsaWNcclxuICpcclxuICogQHBhcmFtIHtzdHJpbmd9IHBhdGggLSBUaGUgcGF0aCB0byBkZWxldGUgcmVjdXJzaXZlbHlcclxuICogQHJldHVybnMge1Byb21pc2V9XHJcbiAqL1xyXG5tb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uKCBwYXRoICkge1xyXG4gIHdpbnN0b24uaW5mbyggYERlbGV0aW5nIGRpcmVjdG9yeSAke3BhdGh9YCApO1xyXG5cclxuICByZXR1cm4gZXhlY3V0ZSggJ3JtJywgWyAnLVJmJywgcGF0aCBdLCAnLi4vJyApO1xyXG59OyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxNQUFNQSxPQUFPLEdBQUdDLE9BQU8sQ0FBRSxXQUFZLENBQUM7QUFDdEMsTUFBTUMsT0FBTyxHQUFHRCxPQUFPLENBQUUsU0FBVSxDQUFDOztBQUVwQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBRSxNQUFNLENBQUNDLE9BQU8sR0FBRyxVQUFVQyxJQUFJLEVBQUc7RUFDaENILE9BQU8sQ0FBQ0ksSUFBSSxDQUFHLHNCQUFxQkQsSUFBSyxFQUFFLENBQUM7RUFFNUMsT0FBT0wsT0FBTyxDQUFFLElBQUksRUFBRSxDQUFFLEtBQUssRUFBRUssSUFBSSxDQUFFLEVBQUUsS0FBTSxDQUFDO0FBQ2hELENBQUMiLCJpZ25vcmVMaXN0IjpbXX0=

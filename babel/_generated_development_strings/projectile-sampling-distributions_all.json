@@ -1,0 +1,77 @@
+{
+  "ca": {
+    "projectile-sampling-distributions.title": {
+      "value": "Distribucions de mostreig de projectils"
+    }
+  },
+  "cs": {
+    "projectile-sampling-distributions.title": {
+      "value": "Výběrová rozdělení projektilů"
+    }
+  },
+  "da": {
+    "projectile-sampling-distributions.title": {
+      "value": "Projektilers sandsynlighedsfordeling"
+    }
+  },
+  "de": {
+    "projectile-sampling-distributions.title": {
+      "value": "Verteilung der Projektil-Proben"
+    }
+  },
+  "el": {
+    "projectile-sampling-distributions.title": {
+      "value": "Ρίψεις βλημάτων - Δειγματοληψία"
+    }
+  },
+  "es": {
+    "projectile-sampling-distributions.title": {
+      "value": "Distribuciones de Muestreo de Proyectiles"
+    }
+  },
+  "fr": {
+    "projectile-sampling-distributions.title": {
+      "value": "Distribution de l'échantillonage des projectiles"
+    }
+  },
+  "hr": {
+    "projectile-sampling-distributions.title": {
+      "value": "Distribucija uzorkovanja projektila"
+    }
+  },
+  "it": {
+    "projectile-sampling-distributions.title": {
+      "value": "Distribuzione campionata di proiettili"
+    }
+  },
+  "iw": {
+    "projectile-sampling-distributions.title": {
+      "value": "התפלגות דגימת קליעים"
+    }
+  },
+  "pl": {
+    "projectile-sampling-distributions.title": {
+      "value": "Rzuty - rozkłady próbkowania"
+    }
+  },
+  "pt_BR": {
+    "projectile-sampling-distributions.title": {
+      "value": "Distribuição Amostral de Projéteis"
+    }
+  },
+  "sr": {
+    "projectile-sampling-distributions.title": {
+      "value": "Пројектили- основе обраде података"
+    }
+  },
+  "vi": {
+    "projectile-sampling-distributions.title": {
+      "value": "Phân bố mẫu của đạn tử"
+    }
+  },
+  "en": {
+    "projectile-sampling-distributions.title": {
+      "value": "Projectile Sampling Distributions"
+    }
+  }
+}

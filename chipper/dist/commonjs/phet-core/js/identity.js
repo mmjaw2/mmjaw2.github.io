@@ -1,0 +1,22 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = identity;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2022, University of Colorado Boulder
+
+/**
+ * Function that returns its input. This was added as an alternative to _.identity because WebStorm did
+ * not provide as good navigation for _.identity.
+ *
+ * @author Sam Reid (PhET Interactive Simulations)
+ */
+
+function identity(t) {
+  return t;
+}
+_phetCore["default"].register('identity', identity);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJpZGVudGl0eSIsInQiLCJwaGV0Q29yZSIsInJlZ2lzdGVyIl0sInNvdXJjZXMiOlsiaWRlbnRpdHkudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjIsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIEZ1bmN0aW9uIHRoYXQgcmV0dXJucyBpdHMgaW5wdXQuIFRoaXMgd2FzIGFkZGVkIGFzIGFuIGFsdGVybmF0aXZlIHRvIF8uaWRlbnRpdHkgYmVjYXVzZSBXZWJTdG9ybSBkaWRcclxuICogbm90IHByb3ZpZGUgYXMgZ29vZCBuYXZpZ2F0aW9uIGZvciBfLmlkZW50aXR5LlxyXG4gKlxyXG4gKiBAYXV0aG9yIFNhbSBSZWlkIChQaEVUIEludGVyYWN0aXZlIFNpbXVsYXRpb25zKVxyXG4gKi9cclxuXHJcbmltcG9ydCBwaGV0Q29yZSBmcm9tICcuL3BoZXRDb3JlLmpzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGlkZW50aXR5PFQ+KCB0OiBUICk6IFQge1xyXG4gIHJldHVybiB0O1xyXG59XHJcblxyXG5waGV0Q29yZS5yZWdpc3RlciggJ2lkZW50aXR5JywgaWRlbnRpdHkgKTsiXSwibWFwcGluZ3MiOiI7Ozs7OztBQVNBLElBQUFBLFNBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUFxQyxTQUFBRCx1QkFBQUUsR0FBQSxXQUFBQSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxHQUFBRCxHQUFBLGdCQUFBQSxHQUFBO0FBVHJDOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFJZSxTQUFTRSxRQUFRQSxDQUFLQyxDQUFJLEVBQU07RUFDN0MsT0FBT0EsQ0FBQztBQUNWO0FBRUFDLG9CQUFRLENBQUNDLFFBQVEsQ0FBRSxVQUFVLEVBQUVILFFBQVMsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

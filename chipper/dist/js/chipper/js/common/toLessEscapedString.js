@@ -1,0 +1,27 @@
+// Copyright 2023-2024, University of Colorado Boulder
+
+/**
+ * More space-efficient alternative to JSON.stringify for strings, that will escape only the necessary characters.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const toLessEscapedString = string => {
+  let result = '';
+  string.split(/(?:)/u).forEach(char => {
+    if (char === '\r') {
+      result += '\\r';
+    } else if (char === '\n') {
+      result += '\\n';
+    } else if (char === '\\') {
+      result += '\\\\';
+    } else if (char === '\'') {
+      result += '\\\'';
+    } else {
+      result += char;
+    }
+  });
+  return `'${result}'`;
+};
+module.exports = toLessEscapedString;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJ0b0xlc3NFc2NhcGVkU3RyaW5nIiwic3RyaW5nIiwicmVzdWx0Iiwic3BsaXQiLCJmb3JFYWNoIiwiY2hhciIsIm1vZHVsZSIsImV4cG9ydHMiXSwic291cmNlcyI6WyJ0b0xlc3NFc2NhcGVkU3RyaW5nLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDIzLTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIE1vcmUgc3BhY2UtZWZmaWNpZW50IGFsdGVybmF0aXZlIHRvIEpTT04uc3RyaW5naWZ5IGZvciBzdHJpbmdzLCB0aGF0IHdpbGwgZXNjYXBlIG9ubHkgdGhlIG5lY2Vzc2FyeSBjaGFyYWN0ZXJzLlxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuY29uc3QgdG9MZXNzRXNjYXBlZFN0cmluZyA9IHN0cmluZyA9PiB7XHJcbiAgbGV0IHJlc3VsdCA9ICcnO1xyXG5cclxuICBzdHJpbmcuc3BsaXQoIC8oPzopL3UgKS5mb3JFYWNoKCBjaGFyID0+IHtcclxuICAgIGlmICggY2hhciA9PT0gJ1xccicgKSB7XHJcbiAgICAgIHJlc3VsdCArPSAnXFxcXHInO1xyXG4gICAgfVxyXG4gICAgZWxzZSBpZiAoIGNoYXIgPT09ICdcXG4nICkge1xyXG4gICAgICByZXN1bHQgKz0gJ1xcXFxuJztcclxuICAgIH1cclxuICAgIGVsc2UgaWYgKCBjaGFyID09PSAnXFxcXCcgKSB7XHJcbiAgICAgIHJlc3VsdCArPSAnXFxcXFxcXFwnO1xyXG4gICAgfVxyXG4gICAgZWxzZSBpZiAoIGNoYXIgPT09ICdcXCcnICkge1xyXG4gICAgICByZXN1bHQgKz0gJ1xcXFxcXCcnO1xyXG4gICAgfVxyXG4gICAgZWxzZSB7XHJcbiAgICAgIHJlc3VsdCArPSBjaGFyO1xyXG4gICAgfVxyXG4gIH0gKTtcclxuXHJcbiAgcmV0dXJuIGAnJHtyZXN1bHR9J2A7XHJcbn07XHJcblxyXG5tb2R1bGUuZXhwb3J0cyA9IHRvTGVzc0VzY2FwZWRTdHJpbmc7Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLE1BQU1BLG1CQUFtQixHQUFHQyxNQUFNLElBQUk7RUFDcEMsSUFBSUMsTUFBTSxHQUFHLEVBQUU7RUFFZkQsTUFBTSxDQUFDRSxLQUFLLENBQUUsT0FBUSxDQUFDLENBQUNDLE9BQU8sQ0FBRUMsSUFBSSxJQUFJO0lBQ3ZDLElBQUtBLElBQUksS0FBSyxJQUFJLEVBQUc7TUFDbkJILE1BQU0sSUFBSSxLQUFLO0lBQ2pCLENBQUMsTUFDSSxJQUFLRyxJQUFJLEtBQUssSUFBSSxFQUFHO01BQ3hCSCxNQUFNLElBQUksS0FBSztJQUNqQixDQUFDLE1BQ0ksSUFBS0csSUFBSSxLQUFLLElBQUksRUFBRztNQUN4QkgsTUFBTSxJQUFJLE1BQU07SUFDbEIsQ0FBQyxNQUNJLElBQUtHLElBQUksS0FBSyxJQUFJLEVBQUc7TUFDeEJILE1BQU0sSUFBSSxNQUFNO0lBQ2xCLENBQUMsTUFDSTtNQUNIQSxNQUFNLElBQUlHLElBQUk7SUFDaEI7RUFDRixDQUFFLENBQUM7RUFFSCxPQUFRLElBQUdILE1BQU8sR0FBRTtBQUN0QixDQUFDO0FBRURJLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHUCxtQkFBbUIiLCJpZ25vcmVMaXN0IjpbXX0=

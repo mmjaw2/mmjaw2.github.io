@@ -1,0 +1,21 @@
+// Copyright 2017, University of Colorado Boulder
+
+/**
+ * npm update
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const npmUpdateDirectory = require('./npmUpdateDirectory');
+
+/**
+ * Executes an effective "npm update" (with pruning because it's required).
+ * @public
+ *
+ * @param {string} repo - The repository name
+ * @returns {Promise}
+ */
+module.exports = async function (repo) {
+  await npmUpdateDirectory(`../${repo}`);
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJucG1VcGRhdGVEaXJlY3RvcnkiLCJyZXF1aXJlIiwibW9kdWxlIiwiZXhwb3J0cyIsInJlcG8iXSwic291cmNlcyI6WyJucG1VcGRhdGUuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMTcsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIG5wbSB1cGRhdGVcclxuICpcclxuICogQGF1dGhvciBKb25hdGhhbiBPbHNvbiA8am9uYXRoYW4ub2xzb25AY29sb3JhZG8uZWR1PlxyXG4gKi9cclxuXHJcbmNvbnN0IG5wbVVwZGF0ZURpcmVjdG9yeSA9IHJlcXVpcmUoICcuL25wbVVwZGF0ZURpcmVjdG9yeScgKTtcclxuXHJcbi8qKlxyXG4gKiBFeGVjdXRlcyBhbiBlZmZlY3RpdmUgXCJucG0gdXBkYXRlXCIgKHdpdGggcHJ1bmluZyBiZWNhdXNlIGl0J3MgcmVxdWlyZWQpLlxyXG4gKiBAcHVibGljXHJcbiAqXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSByZXBvIC0gVGhlIHJlcG9zaXRvcnkgbmFtZVxyXG4gKiBAcmV0dXJucyB7UHJvbWlzZX1cclxuICovXHJcbm1vZHVsZS5leHBvcnRzID0gYXN5bmMgZnVuY3Rpb24oIHJlcG8gKSB7XHJcbiAgYXdhaXQgbnBtVXBkYXRlRGlyZWN0b3J5KCBgLi4vJHtyZXBvfWAgKTtcclxufTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsTUFBTUEsa0JBQWtCLEdBQUdDLE9BQU8sQ0FBRSxzQkFBdUIsQ0FBQzs7QUFFNUQ7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQUMsTUFBTSxDQUFDQyxPQUFPLEdBQUcsZ0JBQWdCQyxJQUFJLEVBQUc7RUFDdEMsTUFBTUosa0JBQWtCLENBQUcsTUFBS0ksSUFBSyxFQUFFLENBQUM7QUFDMUMsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

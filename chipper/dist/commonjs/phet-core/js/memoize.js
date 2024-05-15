@@ -1,0 +1,35 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2020-2022, University of Colorado Boulder
+
+/**
+ * Caches the results of previous single-argument function applications to the same object.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+/**
+ * @param func - Should take one argument
+ * @returns - Returns a function that is equivalent, but caches values from previous keys
+ */
+function memoize(func) {
+  var map = new Map();
+  return function (key) {
+    if (map.has(key)) {
+      return map.get(key);
+    } else {
+      var value = func(key);
+      map.set(key, value);
+      return value;
+    }
+  };
+}
+_phetCore["default"].register('memoize', memoize);
+var _default = exports["default"] = memoize;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJtZW1vaXplIiwiZnVuYyIsIm1hcCIsIk1hcCIsImtleSIsImhhcyIsImdldCIsInZhbHVlIiwic2V0IiwicGhldENvcmUiLCJyZWdpc3RlciIsIl9kZWZhdWx0IiwiZXhwb3J0cyJdLCJzb3VyY2VzIjpbIm1lbW9pemUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjAtMjAyMiwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbyBCb3VsZGVyXHJcblxyXG4vKipcclxuICogQ2FjaGVzIHRoZSByZXN1bHRzIG9mIHByZXZpb3VzIHNpbmdsZS1hcmd1bWVudCBmdW5jdGlvbiBhcHBsaWNhdGlvbnMgdG8gdGhlIHNhbWUgb2JqZWN0LlxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuaW1wb3J0IHBoZXRDb3JlIGZyb20gJy4vcGhldENvcmUuanMnO1xyXG5cclxuLyoqXHJcbiAqIEBwYXJhbSBmdW5jIC0gU2hvdWxkIHRha2Ugb25lIGFyZ3VtZW50XHJcbiAqIEByZXR1cm5zIC0gUmV0dXJucyBhIGZ1bmN0aW9uIHRoYXQgaXMgZXF1aXZhbGVudCwgYnV0IGNhY2hlcyB2YWx1ZXMgZnJvbSBwcmV2aW91cyBrZXlzXHJcbiAqL1xyXG5mdW5jdGlvbiBtZW1vaXplPEtleSwgVmFsdWU+KCBmdW5jOiAoIGs6IEtleSApID0+IFZhbHVlICk6ICggazogS2V5ICkgPT4gVmFsdWUge1xyXG4gIGNvbnN0IG1hcCA9IG5ldyBNYXA8S2V5LCBWYWx1ZT4oKTtcclxuXHJcbiAgcmV0dXJuICgga2V5OiBLZXkgKTogVmFsdWUgPT4ge1xyXG4gICAgaWYgKCBtYXAuaGFzKCBrZXkgKSApIHtcclxuICAgICAgcmV0dXJuIG1hcC5nZXQoIGtleSApITtcclxuICAgIH1cclxuICAgIGVsc2Uge1xyXG4gICAgICBjb25zdCB2YWx1ZSA9IGZ1bmMoIGtleSApO1xyXG4gICAgICBtYXAuc2V0KCBrZXksIHZhbHVlICk7XHJcbiAgICAgIHJldHVybiB2YWx1ZTtcclxuICAgIH1cclxuICB9O1xyXG59XHJcblxyXG5waGV0Q29yZS5yZWdpc3RlciggJ21lbW9pemUnLCBtZW1vaXplICk7XHJcbmV4cG9ydCBkZWZhdWx0IG1lbW9pemU7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFRQSxJQUFBQSxTQUFBLEdBQUFDLHNCQUFBLENBQUFDLE9BQUE7QUFBcUMsU0FBQUQsdUJBQUFFLEdBQUEsV0FBQUEsR0FBQSxJQUFBQSxHQUFBLENBQUFDLFVBQUEsR0FBQUQsR0FBQSxnQkFBQUEsR0FBQTtBQVJyQzs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsU0FBU0UsT0FBT0EsQ0FBY0MsSUFBeUIsRUFBd0I7RUFDN0UsSUFBTUMsR0FBRyxHQUFHLElBQUlDLEdBQUcsQ0FBYSxDQUFDO0VBRWpDLE9BQU8sVUFBRUMsR0FBUSxFQUFhO0lBQzVCLElBQUtGLEdBQUcsQ0FBQ0csR0FBRyxDQUFFRCxHQUFJLENBQUMsRUFBRztNQUNwQixPQUFPRixHQUFHLENBQUNJLEdBQUcsQ0FBRUYsR0FBSSxDQUFDO0lBQ3ZCLENBQUMsTUFDSTtNQUNILElBQU1HLEtBQUssR0FBR04sSUFBSSxDQUFFRyxHQUFJLENBQUM7TUFDekJGLEdBQUcsQ0FBQ00sR0FBRyxDQUFFSixHQUFHLEVBQUVHLEtBQU0sQ0FBQztNQUNyQixPQUFPQSxLQUFLO0lBQ2Q7RUFDRixDQUFDO0FBQ0g7QUFFQUUsb0JBQVEsQ0FBQ0MsUUFBUSxDQUFFLFNBQVMsRUFBRVYsT0FBUSxDQUFDO0FBQUMsSUFBQVcsUUFBQSxHQUFBQyxPQUFBLGNBQ3pCWixPQUFPIiwiaWdub3JlTGlzdCI6W119

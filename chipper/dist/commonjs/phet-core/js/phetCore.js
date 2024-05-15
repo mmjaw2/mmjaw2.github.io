@@ -1,0 +1,17 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _Namespace = _interopRequireDefault(require("./Namespace.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2013-2024, University of Colorado Boulder
+// @author Michael Kauzmann (PhET Interactive Simulations)
+
+var phetCore = new _Namespace["default"]('phetCore');
+
+// Namespace can't require this file, so we register it as a special case.
+phetCore.register('Namespace', _Namespace["default"]);
+var _default = exports["default"] = phetCore;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfTmFtZXNwYWNlIiwiX2ludGVyb3BSZXF1aXJlRGVmYXVsdCIsInJlcXVpcmUiLCJvYmoiLCJfX2VzTW9kdWxlIiwicGhldENvcmUiLCJOYW1lc3BhY2UiLCJyZWdpc3RlciIsIl9kZWZhdWx0IiwiZXhwb3J0cyJdLCJzb3VyY2VzIjpbInBoZXRDb3JlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDEzLTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG4vLyBAYXV0aG9yIE1pY2hhZWwgS2F1em1hbm4gKFBoRVQgSW50ZXJhY3RpdmUgU2ltdWxhdGlvbnMpXHJcblxyXG5cclxuaW1wb3J0IE5hbWVzcGFjZSBmcm9tICcuL05hbWVzcGFjZS5qcyc7XHJcblxyXG5jb25zdCBwaGV0Q29yZSA9IG5ldyBOYW1lc3BhY2UoICdwaGV0Q29yZScgKTtcclxuXHJcbi8vIE5hbWVzcGFjZSBjYW4ndCByZXF1aXJlIHRoaXMgZmlsZSwgc28gd2UgcmVnaXN0ZXIgaXQgYXMgYSBzcGVjaWFsIGNhc2UuXHJcbnBoZXRDb3JlLnJlZ2lzdGVyKCAnTmFtZXNwYWNlJywgTmFtZXNwYWNlICk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBwaGV0Q29yZTsiXSwibWFwcGluZ3MiOiI7Ozs7OztBQUlBLElBQUFBLFVBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUF1QyxTQUFBRCx1QkFBQUUsR0FBQSxXQUFBQSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxHQUFBRCxHQUFBLGdCQUFBQSxHQUFBO0FBSnZDO0FBQ0E7O0FBS0EsSUFBTUUsUUFBUSxHQUFHLElBQUlDLHFCQUFTLENBQUUsVUFBVyxDQUFDOztBQUU1QztBQUNBRCxRQUFRLENBQUNFLFFBQVEsQ0FBRSxXQUFXLEVBQUVELHFCQUFVLENBQUM7QUFBQyxJQUFBRSxRQUFBLEdBQUFDLE9BQUEsY0FFN0JKLFFBQVEiLCJpZ25vcmVMaXN0IjpbXX0=

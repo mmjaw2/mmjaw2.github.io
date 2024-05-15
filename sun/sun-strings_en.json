@@ -1,0 +1,28 @@
+{
+  "sun.title": {
+    "value": "sun demo"
+  },
+  "screen.buttons": {
+    "value": "Buttons"
+  },
+  "screen.components": {
+    "value": "Components"
+  },
+  "screen.dialogs": {
+    "value": "Dialogs"
+  },
+  "a11y": {
+    "numberSpinnerRoleDescription": {
+      "value": "number spinner"
+    },
+    "close": {
+      "value": "Close"
+    },
+    "closed": {
+      "value": "Closed"
+    },
+    "titleClosePattern": {
+      "value": "{{title}}, Close."
+    }
+  }
+}

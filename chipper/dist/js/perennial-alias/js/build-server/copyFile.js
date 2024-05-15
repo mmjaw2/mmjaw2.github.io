@@ -1,0 +1,17 @@
+// Copyright 2017-2018, University of Colorado Boulder
+// @author Matt Pennington (PhET Interactive Simulations)
+
+const fs = require('graceful-fs'); // eslint-disable-line require-statement-match
+
+module.exports = async function (src, dest) {
+  return new Promise((resolve, reject) => {
+    fs.copyFile(src, dest, err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    });
+  });
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJmcyIsInJlcXVpcmUiLCJtb2R1bGUiLCJleHBvcnRzIiwic3JjIiwiZGVzdCIsIlByb21pc2UiLCJyZXNvbHZlIiwicmVqZWN0IiwiY29weUZpbGUiLCJlcnIiXSwic291cmNlcyI6WyJjb3B5RmlsZS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAxNy0yMDE4LCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuLy8gQGF1dGhvciBNYXR0IFBlbm5pbmd0b24gKFBoRVQgSW50ZXJhY3RpdmUgU2ltdWxhdGlvbnMpXHJcblxyXG5jb25zdCBmcyA9IHJlcXVpcmUoICdncmFjZWZ1bC1mcycgKTsgLy8gZXNsaW50LWRpc2FibGUtbGluZSByZXF1aXJlLXN0YXRlbWVudC1tYXRjaFxyXG5cclxubW9kdWxlLmV4cG9ydHMgPSBhc3luYyBmdW5jdGlvbiggc3JjLCBkZXN0ICkge1xyXG4gIHJldHVybiBuZXcgUHJvbWlzZSggKCByZXNvbHZlLCByZWplY3QgKSA9PiB7XHJcbiAgICBmcy5jb3B5RmlsZSggc3JjLCBkZXN0LCBlcnIgPT4ge1xyXG4gICAgICBpZiAoIGVyciApIHtcclxuICAgICAgICByZWplY3QoIGVyciApO1xyXG4gICAgICB9XHJcbiAgICAgIGVsc2Uge1xyXG4gICAgICAgIHJlc29sdmUoKTtcclxuICAgICAgfVxyXG4gICAgfSApO1xyXG4gIH0gKTtcclxufTsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7O0FBRUEsTUFBTUEsRUFBRSxHQUFHQyxPQUFPLENBQUUsYUFBYyxDQUFDLENBQUMsQ0FBQzs7QUFFckNDLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHLGdCQUFnQkMsR0FBRyxFQUFFQyxJQUFJLEVBQUc7RUFDM0MsT0FBTyxJQUFJQyxPQUFPLENBQUUsQ0FBRUMsT0FBTyxFQUFFQyxNQUFNLEtBQU07SUFDekNSLEVBQUUsQ0FBQ1MsUUFBUSxDQUFFTCxHQUFHLEVBQUVDLElBQUksRUFBRUssR0FBRyxJQUFJO01BQzdCLElBQUtBLEdBQUcsRUFBRztRQUNURixNQUFNLENBQUVFLEdBQUksQ0FBQztNQUNmLENBQUMsTUFDSTtRQUNISCxPQUFPLENBQUMsQ0FBQztNQUNYO0lBQ0YsQ0FBRSxDQUFDO0VBQ0wsQ0FBRSxDQUFDO0FBQ0wsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

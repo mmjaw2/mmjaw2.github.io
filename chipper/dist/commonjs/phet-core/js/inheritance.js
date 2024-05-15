@@ -1,0 +1,33 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2017-2023, University of Colorado Boulder
+
+/**
+ * Given inheritance using inherit, this will give the full prototype chain.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+/*
+ * @param type - Constructor for the type in question.
+ * @returns - a list of the prototypes
+ */
+function inheritance(type) {
+  var types = [type];
+  var proto = type.prototype;
+  while (proto && (proto = Object.getPrototypeOf(proto))) {
+    if (proto.constructor) {
+      types.push(proto.constructor);
+    }
+  }
+  return types;
+}
+_phetCore["default"].register('inheritance', inheritance);
+var _default = exports["default"] = inheritance;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJpbmhlcml0YW5jZSIsInR5cGUiLCJ0eXBlcyIsInByb3RvIiwicHJvdG90eXBlIiwiT2JqZWN0IiwiZ2V0UHJvdG90eXBlT2YiLCJjb25zdHJ1Y3RvciIsInB1c2giLCJwaGV0Q29yZSIsInJlZ2lzdGVyIiwiX2RlZmF1bHQiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsiaW5oZXJpdGFuY2UudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMTctMjAyMywgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbyBCb3VsZGVyXHJcblxyXG4vKipcclxuICogR2l2ZW4gaW5oZXJpdGFuY2UgdXNpbmcgaW5oZXJpdCwgdGhpcyB3aWxsIGdpdmUgdGhlIGZ1bGwgcHJvdG90eXBlIGNoYWluLlxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuaW1wb3J0IHBoZXRDb3JlIGZyb20gJy4vcGhldENvcmUuanMnO1xyXG5pbXBvcnQgSW50ZW50aW9uYWxBbnkgZnJvbSAnLi90eXBlcy9JbnRlbnRpb25hbEFueS5qcyc7XHJcblxyXG4vKlxyXG4gKiBAcGFyYW0gdHlwZSAtIENvbnN0cnVjdG9yIGZvciB0aGUgdHlwZSBpbiBxdWVzdGlvbi5cclxuICogQHJldHVybnMgLSBhIGxpc3Qgb2YgdGhlIHByb3RvdHlwZXNcclxuICovXHJcbmZ1bmN0aW9uIGluaGVyaXRhbmNlKCB0eXBlOiBJbnRlbnRpb25hbEFueSApOiBJbnRlbnRpb25hbEFueVtdIHtcclxuICBjb25zdCB0eXBlcyA9IFsgdHlwZSBdO1xyXG5cclxuICBsZXQgcHJvdG8gPSB0eXBlLnByb3RvdHlwZTtcclxuICB3aGlsZSAoIHByb3RvICYmICggcHJvdG8gPSBPYmplY3QuZ2V0UHJvdG90eXBlT2YoIHByb3RvICkgKSApIHtcclxuICAgIGlmICggcHJvdG8uY29uc3RydWN0b3IgKSB7XHJcbiAgICAgIHR5cGVzLnB1c2goIHByb3RvLmNvbnN0cnVjdG9yICk7XHJcbiAgICB9XHJcbiAgfVxyXG4gIHJldHVybiB0eXBlcztcclxufVxyXG5cclxucGhldENvcmUucmVnaXN0ZXIoICdpbmhlcml0YW5jZScsIGluaGVyaXRhbmNlICk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBpbmhlcml0YW5jZTsiXSwibWFwcGluZ3MiOiI7Ozs7OztBQVFBLElBQUFBLFNBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUFxQyxTQUFBRCx1QkFBQUUsR0FBQSxXQUFBQSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxHQUFBRCxHQUFBLGdCQUFBQSxHQUFBO0FBUnJDOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBS0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxTQUFTRSxXQUFXQSxDQUFFQyxJQUFvQixFQUFxQjtFQUM3RCxJQUFNQyxLQUFLLEdBQUcsQ0FBRUQsSUFBSSxDQUFFO0VBRXRCLElBQUlFLEtBQUssR0FBR0YsSUFBSSxDQUFDRyxTQUFTO0VBQzFCLE9BQVFELEtBQUssS0FBTUEsS0FBSyxHQUFHRSxNQUFNLENBQUNDLGNBQWMsQ0FBRUgsS0FBTSxDQUFDLENBQUUsRUFBRztJQUM1RCxJQUFLQSxLQUFLLENBQUNJLFdBQVcsRUFBRztNQUN2QkwsS0FBSyxDQUFDTSxJQUFJLENBQUVMLEtBQUssQ0FBQ0ksV0FBWSxDQUFDO0lBQ2pDO0VBQ0Y7RUFDQSxPQUFPTCxLQUFLO0FBQ2Q7QUFFQU8sb0JBQVEsQ0FBQ0MsUUFBUSxDQUFFLGFBQWEsRUFBRVYsV0FBWSxDQUFDO0FBQUMsSUFBQVcsUUFBQSxHQUFBQyxPQUFBLGNBRWpDWixXQUFXIiwiaWdub3JlTGlzdCI6W119

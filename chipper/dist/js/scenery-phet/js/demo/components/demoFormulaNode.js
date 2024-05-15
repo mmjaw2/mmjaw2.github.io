@@ -1,0 +1,31 @@
+// Copyright 2022-2024, University of Colorado Boulder
+
+/**
+ * Demo for FormulaNode
+ *
+ * @author Chris Malley (PixelZoom, Inc.)
+ */
+
+import FormulaNode from '../../FormulaNode.js';
+import { Node, Rectangle } from '../../../../scenery/js/imports.js';
+export default function demoFormulaNode(layoutBounds) {
+  const conditional = '\\forall \\mathbf{p}\\in\\mathbb{R}^2';
+  const leftVert = '\\left\\lVert';
+  const rightVert = '\\right\\rVert';
+  const matrix = '\\begin{bmatrix} \\cos\\theta & \\sin\\theta \\\\ -\\sin\\theta & \\cos\\theta \\end{bmatrix}^{k+1}';
+  const sumExpr = `${leftVert}\\sum_{k=1}^{\\infty}kx^{k-1}${matrix}${rightVert}`;
+  const integral = '\\int_{0}^{2\\pi}\\overline{f(\\theta)}\\cos\\theta\\,\\mathrm{d}\\theta';
+  const invCos = '\\cos^{-1}\\left( \\frac{\\sqrt{\\varphi_2}}{\\sqrt{x_2^2+x_3^2}} \\right)';
+  const formulaNode = new FormulaNode(`${conditional}\\quad ${sumExpr} = ${invCos} + ${integral}`, {
+    center: layoutBounds.center,
+    scale: 1.3,
+    displayMode: true
+  });
+  const boundsRectangle = Rectangle.bounds(formulaNode.bounds, {
+    fill: 'rgba(0,0,0,0.1)'
+  });
+  return new Node({
+    children: [boundsRectangle, formulaNode]
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJGb3JtdWxhTm9kZSIsIk5vZGUiLCJSZWN0YW5nbGUiLCJkZW1vRm9ybXVsYU5vZGUiLCJsYXlvdXRCb3VuZHMiLCJjb25kaXRpb25hbCIsImxlZnRWZXJ0IiwicmlnaHRWZXJ0IiwibWF0cml4Iiwic3VtRXhwciIsImludGVncmFsIiwiaW52Q29zIiwiZm9ybXVsYU5vZGUiLCJjZW50ZXIiLCJzY2FsZSIsImRpc3BsYXlNb2RlIiwiYm91bmRzUmVjdGFuZ2xlIiwiYm91bmRzIiwiZmlsbCIsImNoaWxkcmVuIl0sInNvdXJjZXMiOlsiZGVtb0Zvcm11bGFOb2RlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDIyLTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIERlbW8gZm9yIEZvcm11bGFOb2RlXHJcbiAqXHJcbiAqIEBhdXRob3IgQ2hyaXMgTWFsbGV5IChQaXhlbFpvb20sIEluYy4pXHJcbiAqL1xyXG5cclxuaW1wb3J0IEZvcm11bGFOb2RlIGZyb20gJy4uLy4uL0Zvcm11bGFOb2RlLmpzJztcclxuaW1wb3J0IEJvdW5kczIgZnJvbSAnLi4vLi4vLi4vLi4vZG90L2pzL0JvdW5kczIuanMnO1xyXG5pbXBvcnQgeyBOb2RlLCBSZWN0YW5nbGUgfSBmcm9tICcuLi8uLi8uLi8uLi9zY2VuZXJ5L2pzL2ltcG9ydHMuanMnO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gZGVtb0Zvcm11bGFOb2RlKCBsYXlvdXRCb3VuZHM6IEJvdW5kczIgKTogTm9kZSB7XHJcblxyXG4gIGNvbnN0IGNvbmRpdGlvbmFsID0gJ1xcXFxmb3JhbGwgXFxcXG1hdGhiZntwfVxcXFxpblxcXFxtYXRoYmJ7Un1eMic7XHJcbiAgY29uc3QgbGVmdFZlcnQgPSAnXFxcXGxlZnRcXFxcbFZlcnQnO1xyXG4gIGNvbnN0IHJpZ2h0VmVydCA9ICdcXFxccmlnaHRcXFxcclZlcnQnO1xyXG4gIGNvbnN0IG1hdHJpeCA9ICdcXFxcYmVnaW57Ym1hdHJpeH0gXFxcXGNvc1xcXFx0aGV0YSAmIFxcXFxzaW5cXFxcdGhldGEgXFxcXFxcXFwgLVxcXFxzaW5cXFxcdGhldGEgJiBcXFxcY29zXFxcXHRoZXRhIFxcXFxlbmR7Ym1hdHJpeH1ee2srMX0nO1xyXG4gIGNvbnN0IHN1bUV4cHIgPSBgJHtsZWZ0VmVydH1cXFxcc3VtX3trPTF9XntcXFxcaW5mdHl9a3hee2stMX0ke21hdHJpeH0ke3JpZ2h0VmVydH1gO1xyXG4gIGNvbnN0IGludGVncmFsID0gJ1xcXFxpbnRfezB9XnsyXFxcXHBpfVxcXFxvdmVybGluZXtmKFxcXFx0aGV0YSl9XFxcXGNvc1xcXFx0aGV0YVxcXFwsXFxcXG1hdGhybXtkfVxcXFx0aGV0YSc7XHJcbiAgY29uc3QgaW52Q29zID0gJ1xcXFxjb3Neey0xfVxcXFxsZWZ0KCBcXFxcZnJhY3tcXFxcc3FydHtcXFxcdmFycGhpXzJ9fXtcXFxcc3FydHt4XzJeMit4XzNeMn19IFxcXFxyaWdodCknO1xyXG5cclxuICBjb25zdCBmb3JtdWxhTm9kZSA9IG5ldyBGb3JtdWxhTm9kZSggYCR7Y29uZGl0aW9uYWx9XFxcXHF1YWQgJHtzdW1FeHByfSA9ICR7aW52Q29zfSArICR7aW50ZWdyYWx9YCwge1xyXG4gICAgY2VudGVyOiBsYXlvdXRCb3VuZHMuY2VudGVyLFxyXG4gICAgc2NhbGU6IDEuMyxcclxuICAgIGRpc3BsYXlNb2RlOiB0cnVlXHJcbiAgfSApO1xyXG5cclxuICBjb25zdCBib3VuZHNSZWN0YW5nbGUgPSBSZWN0YW5nbGUuYm91bmRzKCBmb3JtdWxhTm9kZS5ib3VuZHMsIHtcclxuICAgIGZpbGw6ICdyZ2JhKDAsMCwwLDAuMSknXHJcbiAgfSApO1xyXG5cclxuICByZXR1cm4gbmV3IE5vZGUoIHtcclxuICAgIGNoaWxkcmVuOiBbIGJvdW5kc1JlY3RhbmdsZSwgZm9ybXVsYU5vZGUgXVxyXG4gIH0gKTtcclxufSJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPQSxXQUFXLE1BQU0sc0JBQXNCO0FBRTlDLFNBQVNDLElBQUksRUFBRUMsU0FBUyxRQUFRLG1DQUFtQztBQUVuRSxlQUFlLFNBQVNDLGVBQWVBLENBQUVDLFlBQXFCLEVBQVM7RUFFckUsTUFBTUMsV0FBVyxHQUFHLHVDQUF1QztFQUMzRCxNQUFNQyxRQUFRLEdBQUcsZUFBZTtFQUNoQyxNQUFNQyxTQUFTLEdBQUcsZ0JBQWdCO0VBQ2xDLE1BQU1DLE1BQU0sR0FBRyxxR0FBcUc7RUFDcEgsTUFBTUMsT0FBTyxHQUFJLEdBQUVILFFBQVMsZ0NBQStCRSxNQUFPLEdBQUVELFNBQVUsRUFBQztFQUMvRSxNQUFNRyxRQUFRLEdBQUcsMEVBQTBFO0VBQzNGLE1BQU1DLE1BQU0sR0FBRyw0RUFBNEU7RUFFM0YsTUFBTUMsV0FBVyxHQUFHLElBQUlaLFdBQVcsQ0FBRyxHQUFFSyxXQUFZLFVBQVNJLE9BQVEsTUFBS0UsTUFBTyxNQUFLRCxRQUFTLEVBQUMsRUFBRTtJQUNoR0csTUFBTSxFQUFFVCxZQUFZLENBQUNTLE1BQU07SUFDM0JDLEtBQUssRUFBRSxHQUFHO0lBQ1ZDLFdBQVcsRUFBRTtFQUNmLENBQUUsQ0FBQztFQUVILE1BQU1DLGVBQWUsR0FBR2QsU0FBUyxDQUFDZSxNQUFNLENBQUVMLFdBQVcsQ0FBQ0ssTUFBTSxFQUFFO0lBQzVEQyxJQUFJLEVBQUU7RUFDUixDQUFFLENBQUM7RUFFSCxPQUFPLElBQUlqQixJQUFJLENBQUU7SUFDZmtCLFFBQVEsRUFBRSxDQUFFSCxlQUFlLEVBQUVKLFdBQVc7RUFDMUMsQ0FBRSxDQUFDO0FBQ0wiLCJpZ25vcmVMaXN0IjpbXX0=

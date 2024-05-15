@@ -1,0 +1,17 @@
+// Copyright 2023-2024, University of Colorado Boulder
+
+/* eslint-env node */
+
+/**
+ * Strips comments from a WGSL string
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+const wgslStripComments = str => {
+  return str.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\r\n/g, '\n').split('\n').map(line => {
+    const index = line.indexOf('//');
+    return index >= 0 ? line.substring(0, index) : line;
+  }).join('\n');
+};
+module.exports = wgslStripComments;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJ3Z3NsU3RyaXBDb21tZW50cyIsInN0ciIsInJlcGxhY2UiLCJzcGxpdCIsIm1hcCIsImxpbmUiLCJpbmRleCIsImluZGV4T2YiLCJzdWJzdHJpbmciLCJqb2luIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJzb3VyY2VzIjpbIndnc2xTdHJpcENvbW1lbnRzLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDIzLTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyogZXNsaW50LWVudiBub2RlICovXHJcblxyXG4vKipcclxuICogU3RyaXBzIGNvbW1lbnRzIGZyb20gYSBXR1NMIHN0cmluZ1xyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5jb25zdCB3Z3NsU3RyaXBDb21tZW50cyA9IHN0ciA9PiB7XHJcbiAgcmV0dXJuIHN0ci5yZXBsYWNlKCAvXFwvXFwqW1xcc1xcU10qP1xcKlxcLy9nLCAnJyApLnJlcGxhY2UoIC9cXHJcXG4vZywgJ1xcbicgKS5zcGxpdCggJ1xcbicgKS5tYXAoIGxpbmUgPT4ge1xyXG4gICAgY29uc3QgaW5kZXggPSBsaW5lLmluZGV4T2YoICcvLycgKTtcclxuICAgIHJldHVybiBpbmRleCA+PSAwID8gbGluZS5zdWJzdHJpbmcoIDAsIGluZGV4ICkgOiBsaW5lO1xyXG4gIH0gKS5qb2luKCAnXFxuJyApO1xyXG59O1xyXG5cclxubW9kdWxlLmV4cG9ydHMgPSB3Z3NsU3RyaXBDb21tZW50czsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxNQUFNQSxpQkFBaUIsR0FBR0MsR0FBRyxJQUFJO0VBQy9CLE9BQU9BLEdBQUcsQ0FBQ0MsT0FBTyxDQUFFLG1CQUFtQixFQUFFLEVBQUcsQ0FBQyxDQUFDQSxPQUFPLENBQUUsT0FBTyxFQUFFLElBQUssQ0FBQyxDQUFDQyxLQUFLLENBQUUsSUFBSyxDQUFDLENBQUNDLEdBQUcsQ0FBRUMsSUFBSSxJQUFJO0lBQ2hHLE1BQU1DLEtBQUssR0FBR0QsSUFBSSxDQUFDRSxPQUFPLENBQUUsSUFBSyxDQUFDO0lBQ2xDLE9BQU9ELEtBQUssSUFBSSxDQUFDLEdBQUdELElBQUksQ0FBQ0csU0FBUyxDQUFFLENBQUMsRUFBRUYsS0FBTSxDQUFDLEdBQUdELElBQUk7RUFDdkQsQ0FBRSxDQUFDLENBQUNJLElBQUksQ0FBRSxJQUFLLENBQUM7QUFDbEIsQ0FBQztBQUVEQyxNQUFNLENBQUNDLE9BQU8sR0FBR1gsaUJBQWlCIiwiaWdub3JlTGlzdCI6W119

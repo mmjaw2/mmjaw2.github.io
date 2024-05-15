@@ -1,0 +1,32 @@
+// Copyright 2023, University of Colorado Boulder
+
+/**
+ * npm update
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const execute = require('./execute');
+const npmCommand = require('./npmCommand');
+const winston = require('../../../../../../perennial-alias/node_modules/winston');
+const asyncMutex = require('async-mutex'); // eslint-disable-line require-statement-match
+
+const mutex = new asyncMutex.Mutex();
+
+/**
+ * Executes an effective "npm update" (with pruning because it's required).
+ * @public
+ *
+ * @param {string} directory
+ * @returns {Promise}
+ */
+module.exports = async function (directory) {
+  winston.info(`npm update in ${directory}`);
+
+  // NOTE: Run these synchronously across all instances!
+  await mutex.runExclusive(async () => {
+    await execute(npmCommand, ['prune'], directory);
+    await execute(npmCommand, ['update'], directory);
+  });
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJleGVjdXRlIiwicmVxdWlyZSIsIm5wbUNvbW1hbmQiLCJ3aW5zdG9uIiwiYXN5bmNNdXRleCIsIm11dGV4IiwiTXV0ZXgiLCJtb2R1bGUiLCJleHBvcnRzIiwiZGlyZWN0b3J5IiwiaW5mbyIsInJ1bkV4Y2x1c2l2ZSJdLCJzb3VyY2VzIjpbIm5wbVVwZGF0ZURpcmVjdG9yeS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAyMywgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbyBCb3VsZGVyXHJcblxyXG4vKipcclxuICogbnBtIHVwZGF0ZVxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuY29uc3QgZXhlY3V0ZSA9IHJlcXVpcmUoICcuL2V4ZWN1dGUnICk7XHJcbmNvbnN0IG5wbUNvbW1hbmQgPSByZXF1aXJlKCAnLi9ucG1Db21tYW5kJyApO1xyXG5jb25zdCB3aW5zdG9uID0gcmVxdWlyZSggJ3dpbnN0b24nICk7XHJcbmNvbnN0IGFzeW5jTXV0ZXggPSByZXF1aXJlKCAnYXN5bmMtbXV0ZXgnICk7IC8vIGVzbGludC1kaXNhYmxlLWxpbmUgcmVxdWlyZS1zdGF0ZW1lbnQtbWF0Y2hcclxuXHJcbmNvbnN0IG11dGV4ID0gbmV3IGFzeW5jTXV0ZXguTXV0ZXgoKTtcclxuXHJcbi8qKlxyXG4gKiBFeGVjdXRlcyBhbiBlZmZlY3RpdmUgXCJucG0gdXBkYXRlXCIgKHdpdGggcHJ1bmluZyBiZWNhdXNlIGl0J3MgcmVxdWlyZWQpLlxyXG4gKiBAcHVibGljXHJcbiAqXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSBkaXJlY3RvcnlcclxuICogQHJldHVybnMge1Byb21pc2V9XHJcbiAqL1xyXG5tb2R1bGUuZXhwb3J0cyA9IGFzeW5jIGZ1bmN0aW9uKCBkaXJlY3RvcnkgKSB7XHJcbiAgd2luc3Rvbi5pbmZvKCBgbnBtIHVwZGF0ZSBpbiAke2RpcmVjdG9yeX1gICk7XHJcblxyXG4gIC8vIE5PVEU6IFJ1biB0aGVzZSBzeW5jaHJvbm91c2x5IGFjcm9zcyBhbGwgaW5zdGFuY2VzIVxyXG4gIGF3YWl0IG11dGV4LnJ1bkV4Y2x1c2l2ZSggYXN5bmMgKCkgPT4ge1xyXG4gICAgYXdhaXQgZXhlY3V0ZSggbnBtQ29tbWFuZCwgWyAncHJ1bmUnIF0sIGRpcmVjdG9yeSApO1xyXG4gICAgYXdhaXQgZXhlY3V0ZSggbnBtQ29tbWFuZCwgWyAndXBkYXRlJyBdLCBkaXJlY3RvcnkgKTtcclxuICB9ICk7XHJcbn07Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLE1BQU1BLE9BQU8sR0FBR0MsT0FBTyxDQUFFLFdBQVksQ0FBQztBQUN0QyxNQUFNQyxVQUFVLEdBQUdELE9BQU8sQ0FBRSxjQUFlLENBQUM7QUFDNUMsTUFBTUUsT0FBTyxHQUFHRixPQUFPLENBQUUsU0FBVSxDQUFDO0FBQ3BDLE1BQU1HLFVBQVUsR0FBR0gsT0FBTyxDQUFFLGFBQWMsQ0FBQyxDQUFDLENBQUM7O0FBRTdDLE1BQU1JLEtBQUssR0FBRyxJQUFJRCxVQUFVLENBQUNFLEtBQUssQ0FBQyxDQUFDOztBQUVwQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBQyxNQUFNLENBQUNDLE9BQU8sR0FBRyxnQkFBZ0JDLFNBQVMsRUFBRztFQUMzQ04sT0FBTyxDQUFDTyxJQUFJLENBQUcsaUJBQWdCRCxTQUFVLEVBQUUsQ0FBQzs7RUFFNUM7RUFDQSxNQUFNSixLQUFLLENBQUNNLFlBQVksQ0FBRSxZQUFZO0lBQ3BDLE1BQU1YLE9BQU8sQ0FBRUUsVUFBVSxFQUFFLENBQUUsT0FBTyxDQUFFLEVBQUVPLFNBQVUsQ0FBQztJQUNuRCxNQUFNVCxPQUFPLENBQUVFLFVBQVUsRUFBRSxDQUFFLFFBQVEsQ0FBRSxFQUFFTyxTQUFVLENBQUM7RUFDdEQsQ0FBRSxDQUFDO0FBQ0wsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

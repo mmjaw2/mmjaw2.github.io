@@ -1,0 +1,22 @@
+// Copyright 2017, University of Colorado Boulder
+
+/**
+ * git pull
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const gitPullDirectory = require('./gitPullDirectory');
+
+/**
+ * Executes git pull
+ * @public
+ *
+ * @param {string} repo - The repository name
+ * @returns {Promise.<string>} - Stdout
+ * @rejects {ExecuteError}
+ */
+module.exports = async function gitPull(repo) {
+  await gitPullDirectory(`../${repo}`);
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJnaXRQdWxsRGlyZWN0b3J5IiwicmVxdWlyZSIsIm1vZHVsZSIsImV4cG9ydHMiLCJnaXRQdWxsIiwicmVwbyJdLCJzb3VyY2VzIjpbImdpdFB1bGwuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMTcsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIGdpdCBwdWxsXHJcbiAqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5jb25zdCBnaXRQdWxsRGlyZWN0b3J5ID0gcmVxdWlyZSggJy4vZ2l0UHVsbERpcmVjdG9yeScgKTtcclxuXHJcbi8qKlxyXG4gKiBFeGVjdXRlcyBnaXQgcHVsbFxyXG4gKiBAcHVibGljXHJcbiAqXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSByZXBvIC0gVGhlIHJlcG9zaXRvcnkgbmFtZVxyXG4gKiBAcmV0dXJucyB7UHJvbWlzZS48c3RyaW5nPn0gLSBTdGRvdXRcclxuICogQHJlamVjdHMge0V4ZWN1dGVFcnJvcn1cclxuICovXHJcbm1vZHVsZS5leHBvcnRzID0gYXN5bmMgZnVuY3Rpb24gZ2l0UHVsbCggcmVwbyApIHtcclxuICBhd2FpdCBnaXRQdWxsRGlyZWN0b3J5KCBgLi4vJHtyZXBvfWAgKTtcclxufTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsTUFBTUEsZ0JBQWdCLEdBQUdDLE9BQU8sQ0FBRSxvQkFBcUIsQ0FBQzs7QUFFeEQ7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBQyxNQUFNLENBQUNDLE9BQU8sR0FBRyxlQUFlQyxPQUFPQSxDQUFFQyxJQUFJLEVBQUc7RUFDOUMsTUFBTUwsZ0JBQWdCLENBQUcsTUFBS0ssSUFBSyxFQUFFLENBQUM7QUFDeEMsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

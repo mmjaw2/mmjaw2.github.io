@@ -1,0 +1,20 @@
+// Copyright 2016-2024, University of Colorado Boulder
+
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import '../../axon/js/main.js';
+import '../../dot/js/main.js';
+import '../../kite/js/main.js';
+import '../../phet-core/js/main.js';
+import '../../utterance-queue/js/main.js';
+import './main.js';
+if (!window.hasOwnProperty('_')) {
+  throw new Error('Underscore/Lodash not found: _');
+}
+if (!window.hasOwnProperty('$')) {
+  throw new Error('jQuery not found: $');
+}
+phet.scenery.Utils.polyfillRequestAnimationFrame();
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJ3aW5kb3ciLCJoYXNPd25Qcm9wZXJ0eSIsIkVycm9yIiwicGhldCIsInNjZW5lcnkiLCJVdGlscyIsInBvbHlmaWxsUmVxdWVzdEFuaW1hdGlvbkZyYW1lIl0sInNvdXJjZXMiOlsic2NlbmVyeS1tYWluLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE2LTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5pbXBvcnQgJy4uLy4uL2F4b24vanMvbWFpbi5qcyc7XHJcbmltcG9ydCAnLi4vLi4vZG90L2pzL21haW4uanMnO1xyXG5pbXBvcnQgJy4uLy4uL2tpdGUvanMvbWFpbi5qcyc7XHJcbmltcG9ydCAnLi4vLi4vcGhldC1jb3JlL2pzL21haW4uanMnO1xyXG5pbXBvcnQgJy4uLy4uL3V0dGVyYW5jZS1xdWV1ZS9qcy9tYWluLmpzJztcclxuaW1wb3J0ICcuL21haW4uanMnO1xyXG5cclxuaWYgKCAhd2luZG93Lmhhc093blByb3BlcnR5KCAnXycgKSApIHtcclxuICB0aHJvdyBuZXcgRXJyb3IoICdVbmRlcnNjb3JlL0xvZGFzaCBub3QgZm91bmQ6IF8nICk7XHJcbn1cclxuaWYgKCAhd2luZG93Lmhhc093blByb3BlcnR5KCAnJCcgKSApIHtcclxuICB0aHJvdyBuZXcgRXJyb3IoICdqUXVlcnkgbm90IGZvdW5kOiAkJyApO1xyXG59XHJcblxyXG5waGV0LnNjZW5lcnkuVXRpbHMucG9seWZpbGxSZXF1ZXN0QW5pbWF0aW9uRnJhbWUoKTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPLHVCQUF1QjtBQUM5QixPQUFPLHNCQUFzQjtBQUM3QixPQUFPLHVCQUF1QjtBQUM5QixPQUFPLDRCQUE0QjtBQUNuQyxPQUFPLGtDQUFrQztBQUN6QyxPQUFPLFdBQVc7QUFFbEIsSUFBSyxDQUFDQSxNQUFNLENBQUNDLGNBQWMsQ0FBRSxHQUFJLENBQUMsRUFBRztFQUNuQyxNQUFNLElBQUlDLEtBQUssQ0FBRSxnQ0FBaUMsQ0FBQztBQUNyRDtBQUNBLElBQUssQ0FBQ0YsTUFBTSxDQUFDQyxjQUFjLENBQUUsR0FBSSxDQUFDLEVBQUc7RUFDbkMsTUFBTSxJQUFJQyxLQUFLLENBQUUscUJBQXNCLENBQUM7QUFDMUM7QUFFQUMsSUFBSSxDQUFDQyxPQUFPLENBQUNDLEtBQUssQ0FBQ0MsNkJBQTZCLENBQUMsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

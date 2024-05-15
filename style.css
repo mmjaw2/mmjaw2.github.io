@@ -1,0 +1,24 @@
+:root {
+    --bg: #FFFFFF;
+    --text: #C3C3C3;
+    --primary: #2499FF;
+    --secondary: #40455B;
+    --accent: #7E6BD8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+title {
+    color: var(--primary);
+    accent-color: var(--accent);
+}
+
+.center {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+}

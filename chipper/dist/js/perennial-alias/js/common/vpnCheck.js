@@ -1,0 +1,24 @@
+// Copyright 2018, University of Colorado Boulder
+
+/**
+ * Checks whether we are somewhere that would have access to phet-server2.int.colorado.edu (implies access to bayes).
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const dns = require('dns');
+
+/**
+ * Checks whether we are somewhere that would have access to phet-server2.int.colorado.edu (implies access to bayes).
+ * @public
+ *
+ * @returns {Promise.<boolean>} - Whether the directory exists
+ */
+module.exports = function () {
+  return new Promise((resolve, reject) => {
+    dns.resolve('phet-server2.int.colorado.edu', err => {
+      resolve(!err);
+    });
+  });
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJkbnMiLCJyZXF1aXJlIiwibW9kdWxlIiwiZXhwb3J0cyIsIlByb21pc2UiLCJyZXNvbHZlIiwicmVqZWN0IiwiZXJyIl0sInNvdXJjZXMiOlsidnBuQ2hlY2suanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMTgsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIENoZWNrcyB3aGV0aGVyIHdlIGFyZSBzb21ld2hlcmUgdGhhdCB3b3VsZCBoYXZlIGFjY2VzcyB0byBwaGV0LXNlcnZlcjIuaW50LmNvbG9yYWRvLmVkdSAoaW1wbGllcyBhY2Nlc3MgdG8gYmF5ZXMpLlxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuY29uc3QgZG5zID0gcmVxdWlyZSggJ2RucycgKTtcclxuXHJcbi8qKlxyXG4gKiBDaGVja3Mgd2hldGhlciB3ZSBhcmUgc29tZXdoZXJlIHRoYXQgd291bGQgaGF2ZSBhY2Nlc3MgdG8gcGhldC1zZXJ2ZXIyLmludC5jb2xvcmFkby5lZHUgKGltcGxpZXMgYWNjZXNzIHRvIGJheWVzKS5cclxuICogQHB1YmxpY1xyXG4gKlxyXG4gKiBAcmV0dXJucyB7UHJvbWlzZS48Ym9vbGVhbj59IC0gV2hldGhlciB0aGUgZGlyZWN0b3J5IGV4aXN0c1xyXG4gKi9cclxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbigpIHtcclxuICByZXR1cm4gbmV3IFByb21pc2UoICggcmVzb2x2ZSwgcmVqZWN0ICkgPT4ge1xyXG4gICAgZG5zLnJlc29sdmUoICdwaGV0LXNlcnZlcjIuaW50LmNvbG9yYWRvLmVkdScsIGVyciA9PiB7XHJcbiAgICAgIHJlc29sdmUoICFlcnIgKTtcclxuICAgIH0gKTtcclxuICB9ICk7XHJcbn07Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLE1BQU1BLEdBQUcsR0FBR0MsT0FBTyxDQUFFLEtBQU0sQ0FBQzs7QUFFNUI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0FDLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHLFlBQVc7RUFDMUIsT0FBTyxJQUFJQyxPQUFPLENBQUUsQ0FBRUMsT0FBTyxFQUFFQyxNQUFNLEtBQU07SUFDekNOLEdBQUcsQ0FBQ0ssT0FBTyxDQUFFLCtCQUErQixFQUFFRSxHQUFHLElBQUk7TUFDbkRGLE9BQU8sQ0FBRSxDQUFDRSxHQUFJLENBQUM7SUFDakIsQ0FBRSxDQUFDO0VBQ0wsQ0FBRSxDQUFDO0FBQ0wsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

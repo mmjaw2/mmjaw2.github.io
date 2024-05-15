@@ -1,0 +1,36 @@
+"use strict";
+
+// Copyright 2017, University of Colorado Boulder
+
+/**
+ * Whether a git commit is an ancestor of another.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+var execute = require('./execute');
+var winston = require('../../../../../../perennial-alias/node_modules/winston');
+
+/**
+ * Whether a git commit is an ancestor of another
+ * @public
+ *
+ * @param {string} repo - The repository name
+ * @param {string} possibleAncestor
+ * @param {string} possibleDescendant
+ * @returns {Promise.<boolean>} - Whether it is an ancestor or not
+ * @rejects {ExecuteError}
+ */
+module.exports = function (repo, possibleAncestor, possibleDescendant) {
+  winston.info("git check (in ".concat(repo, ") for whether ").concat(possibleAncestor, " is an ancestor of ").concat(possibleDescendant));
+  return execute('git', ['merge-base', '--is-ancestor', possibleAncestor, possibleDescendant], "../".concat(repo)).then(function (stdout) {
+    return Promise.resolve(true);
+  }, function (mergeError) {
+    if (mergeError.code === 1) {
+      return Promise.resolve(false);
+    } else {
+      return Promise.reject(mergeError);
+    }
+  });
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJleGVjdXRlIiwicmVxdWlyZSIsIndpbnN0b24iLCJtb2R1bGUiLCJleHBvcnRzIiwicmVwbyIsInBvc3NpYmxlQW5jZXN0b3IiLCJwb3NzaWJsZURlc2NlbmRhbnQiLCJpbmZvIiwiY29uY2F0IiwidGhlbiIsInN0ZG91dCIsIlByb21pc2UiLCJyZXNvbHZlIiwibWVyZ2VFcnJvciIsImNvZGUiLCJyZWplY3QiXSwic291cmNlcyI6WyJnaXRJc0FuY2VzdG9yLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE3LCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBXaGV0aGVyIGEgZ2l0IGNvbW1pdCBpcyBhbiBhbmNlc3RvciBvZiBhbm90aGVyLlxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuY29uc3QgZXhlY3V0ZSA9IHJlcXVpcmUoICcuL2V4ZWN1dGUnICk7XHJcbmNvbnN0IHdpbnN0b24gPSByZXF1aXJlKCAnd2luc3RvbicgKTtcclxuXHJcbi8qKlxyXG4gKiBXaGV0aGVyIGEgZ2l0IGNvbW1pdCBpcyBhbiBhbmNlc3RvciBvZiBhbm90aGVyXHJcbiAqIEBwdWJsaWNcclxuICpcclxuICogQHBhcmFtIHtzdHJpbmd9IHJlcG8gLSBUaGUgcmVwb3NpdG9yeSBuYW1lXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSBwb3NzaWJsZUFuY2VzdG9yXHJcbiAqIEBwYXJhbSB7c3RyaW5nfSBwb3NzaWJsZURlc2NlbmRhbnRcclxuICogQHJldHVybnMge1Byb21pc2UuPGJvb2xlYW4+fSAtIFdoZXRoZXIgaXQgaXMgYW4gYW5jZXN0b3Igb3Igbm90XHJcbiAqIEByZWplY3RzIHtFeGVjdXRlRXJyb3J9XHJcbiAqL1xyXG5tb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uKCByZXBvLCBwb3NzaWJsZUFuY2VzdG9yLCBwb3NzaWJsZURlc2NlbmRhbnQgKSB7XHJcbiAgd2luc3Rvbi5pbmZvKCBgZ2l0IGNoZWNrIChpbiAke3JlcG99KSBmb3Igd2hldGhlciAke3Bvc3NpYmxlQW5jZXN0b3J9IGlzIGFuIGFuY2VzdG9yIG9mICR7cG9zc2libGVEZXNjZW5kYW50fWAgKTtcclxuXHJcbiAgcmV0dXJuIGV4ZWN1dGUoICdnaXQnLCBbICdtZXJnZS1iYXNlJywgJy0taXMtYW5jZXN0b3InLCBwb3NzaWJsZUFuY2VzdG9yLCBwb3NzaWJsZURlc2NlbmRhbnQgXSwgYC4uLyR7cmVwb31gICkudGhlbiggc3Rkb3V0ID0+IFByb21pc2UucmVzb2x2ZSggdHJ1ZSApLCBtZXJnZUVycm9yID0+IHtcclxuICAgIGlmICggbWVyZ2VFcnJvci5jb2RlID09PSAxICkge1xyXG4gICAgICByZXR1cm4gUHJvbWlzZS5yZXNvbHZlKCBmYWxzZSApO1xyXG4gICAgfVxyXG4gICAgZWxzZSB7XHJcbiAgICAgIHJldHVybiBQcm9taXNlLnJlamVjdCggbWVyZ2VFcnJvciApO1xyXG4gICAgfVxyXG4gIH0gKTtcclxufTsiXSwibWFwcGluZ3MiOiI7O0FBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxJQUFNQSxPQUFPLEdBQUdDLE9BQU8sQ0FBRSxXQUFZLENBQUM7QUFDdEMsSUFBTUMsT0FBTyxHQUFHRCxPQUFPLENBQUUsU0FBVSxDQUFDOztBQUVwQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBRSxNQUFNLENBQUNDLE9BQU8sR0FBRyxVQUFVQyxJQUFJLEVBQUVDLGdCQUFnQixFQUFFQyxrQkFBa0IsRUFBRztFQUN0RUwsT0FBTyxDQUFDTSxJQUFJLGtCQUFBQyxNQUFBLENBQW1CSixJQUFJLG9CQUFBSSxNQUFBLENBQWlCSCxnQkFBZ0IseUJBQUFHLE1BQUEsQ0FBc0JGLGtCQUFrQixDQUFHLENBQUM7RUFFaEgsT0FBT1AsT0FBTyxDQUFFLEtBQUssRUFBRSxDQUFFLFlBQVksRUFBRSxlQUFlLEVBQUVNLGdCQUFnQixFQUFFQyxrQkFBa0IsQ0FBRSxRQUFBRSxNQUFBLENBQVFKLElBQUksQ0FBRyxDQUFDLENBQUNLLElBQUksQ0FBRSxVQUFBQyxNQUFNO0lBQUEsT0FBSUMsT0FBTyxDQUFDQyxPQUFPLENBQUUsSUFBSyxDQUFDO0VBQUEsR0FBRSxVQUFBQyxVQUFVLEVBQUk7SUFDcEssSUFBS0EsVUFBVSxDQUFDQyxJQUFJLEtBQUssQ0FBQyxFQUFHO01BQzNCLE9BQU9ILE9BQU8sQ0FBQ0MsT0FBTyxDQUFFLEtBQU0sQ0FBQztJQUNqQyxDQUFDLE1BQ0k7TUFDSCxPQUFPRCxPQUFPLENBQUNJLE1BQU0sQ0FBRUYsVUFBVyxDQUFDO0lBQ3JDO0VBQ0YsQ0FBRSxDQUFDO0FBQ0wsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

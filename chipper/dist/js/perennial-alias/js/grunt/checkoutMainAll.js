@@ -1,0 +1,39 @@
+// Copyright 2002-2015, University of Colorado Boulder
+
+/**
+ * This grunt task checks out main for all sims. Useful in some cases where different shas with conflicting dependencies are checked out.
+ * @author Michael Kauzmann (PhET Interactive Simulations)
+ */
+
+const _ = require('lodash');
+const child_process = require('child_process');
+const grunt = require('grunt');
+
+/**
+ * Checks out main for all repositories in the git root directory.
+ * @public
+ */
+module.exports = function () {
+  const command = 'git checkout main';
+  const done = grunt.task.current.async();
+  const gitRoots = grunt.file.expand({
+    cwd: '..'
+  }, '*');
+  const finished = _.after(gitRoots.length, done);
+  for (let i = 0; i < gitRoots.length; i++) {
+    const filename = gitRoots[i]; // Don't change to const without rewrapping usages in the closure
+    if (filename !== 'babel' && grunt.file.isDir(`../${filename}`) && grunt.file.exists(`../${filename}/.git`)) {
+      child_process.exec(command, {
+        cwd: `../${filename}`
+      }, error => {
+        if (error) {
+          grunt.log.writeln(`error in ${command} for repo ${filename}`);
+        }
+        finished();
+      });
+    } else {
+      finished();
+    }
+  }
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfIiwicmVxdWlyZSIsImNoaWxkX3Byb2Nlc3MiLCJncnVudCIsIm1vZHVsZSIsImV4cG9ydHMiLCJjb21tYW5kIiwiZG9uZSIsInRhc2siLCJjdXJyZW50IiwiYXN5bmMiLCJnaXRSb290cyIsImZpbGUiLCJleHBhbmQiLCJjd2QiLCJmaW5pc2hlZCIsImFmdGVyIiwibGVuZ3RoIiwiaSIsImZpbGVuYW1lIiwiaXNEaXIiLCJleGlzdHMiLCJleGVjIiwiZXJyb3IiLCJsb2ciLCJ3cml0ZWxuIl0sInNvdXJjZXMiOlsiY2hlY2tvdXRNYWluQWxsLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDAyLTIwMTUsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIFRoaXMgZ3J1bnQgdGFzayBjaGVja3Mgb3V0IG1haW4gZm9yIGFsbCBzaW1zLiBVc2VmdWwgaW4gc29tZSBjYXNlcyB3aGVyZSBkaWZmZXJlbnQgc2hhcyB3aXRoIGNvbmZsaWN0aW5nIGRlcGVuZGVuY2llcyBhcmUgY2hlY2tlZCBvdXQuXHJcbiAqIEBhdXRob3IgTWljaGFlbCBLYXV6bWFubiAoUGhFVCBJbnRlcmFjdGl2ZSBTaW11bGF0aW9ucylcclxuICovXHJcblxyXG5jb25zdCBfID0gcmVxdWlyZSggJ2xvZGFzaCcgKTtcclxuY29uc3QgY2hpbGRfcHJvY2VzcyA9IHJlcXVpcmUoICdjaGlsZF9wcm9jZXNzJyApO1xyXG5jb25zdCBncnVudCA9IHJlcXVpcmUoICdncnVudCcgKTtcclxuXHJcbi8qKlxyXG4gKiBDaGVja3Mgb3V0IG1haW4gZm9yIGFsbCByZXBvc2l0b3JpZXMgaW4gdGhlIGdpdCByb290IGRpcmVjdG9yeS5cclxuICogQHB1YmxpY1xyXG4gKi9cclxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbigpIHtcclxuXHJcbiAgY29uc3QgY29tbWFuZCA9ICdnaXQgY2hlY2tvdXQgbWFpbic7XHJcbiAgY29uc3QgZG9uZSA9IGdydW50LnRhc2suY3VycmVudC5hc3luYygpO1xyXG5cclxuICBjb25zdCBnaXRSb290cyA9IGdydW50LmZpbGUuZXhwYW5kKCB7IGN3ZDogJy4uJyB9LCAnKicgKTtcclxuICBjb25zdCBmaW5pc2hlZCA9IF8uYWZ0ZXIoIGdpdFJvb3RzLmxlbmd0aCwgZG9uZSApO1xyXG5cclxuICBmb3IgKCBsZXQgaSA9IDA7IGkgPCBnaXRSb290cy5sZW5ndGg7IGkrKyApIHtcclxuICAgIGNvbnN0IGZpbGVuYW1lID0gZ2l0Um9vdHNbIGkgXTsgLy8gRG9uJ3QgY2hhbmdlIHRvIGNvbnN0IHdpdGhvdXQgcmV3cmFwcGluZyB1c2FnZXMgaW4gdGhlIGNsb3N1cmVcclxuICAgIGlmICggZmlsZW5hbWUgIT09ICdiYWJlbCcgJiYgZ3J1bnQuZmlsZS5pc0RpciggYC4uLyR7ZmlsZW5hbWV9YCApICYmIGdydW50LmZpbGUuZXhpc3RzKCBgLi4vJHtmaWxlbmFtZX0vLmdpdGAgKSApIHtcclxuICAgICAgY2hpbGRfcHJvY2Vzcy5leGVjKCBjb21tYW5kLCB7IGN3ZDogYC4uLyR7ZmlsZW5hbWV9YCB9LCBlcnJvciA9PiB7XHJcbiAgICAgICAgaWYgKCBlcnJvciApIHtcclxuICAgICAgICAgIGdydW50LmxvZy53cml0ZWxuKCBgZXJyb3IgaW4gJHtjb21tYW5kfSBmb3IgcmVwbyAke2ZpbGVuYW1lfWAgKTtcclxuICAgICAgICB9XHJcbiAgICAgICAgZmluaXNoZWQoKTtcclxuICAgICAgfSApO1xyXG4gICAgfVxyXG4gICAgZWxzZSB7XHJcbiAgICAgIGZpbmlzaGVkKCk7XHJcbiAgICB9XHJcbiAgfVxyXG59OyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsTUFBTUEsQ0FBQyxHQUFHQyxPQUFPLENBQUUsUUFBUyxDQUFDO0FBQzdCLE1BQU1DLGFBQWEsR0FBR0QsT0FBTyxDQUFFLGVBQWdCLENBQUM7QUFDaEQsTUFBTUUsS0FBSyxHQUFHRixPQUFPLENBQUUsT0FBUSxDQUFDOztBQUVoQztBQUNBO0FBQ0E7QUFDQTtBQUNBRyxNQUFNLENBQUNDLE9BQU8sR0FBRyxZQUFXO0VBRTFCLE1BQU1DLE9BQU8sR0FBRyxtQkFBbUI7RUFDbkMsTUFBTUMsSUFBSSxHQUFHSixLQUFLLENBQUNLLElBQUksQ0FBQ0MsT0FBTyxDQUFDQyxLQUFLLENBQUMsQ0FBQztFQUV2QyxNQUFNQyxRQUFRLEdBQUdSLEtBQUssQ0FBQ1MsSUFBSSxDQUFDQyxNQUFNLENBQUU7SUFBRUMsR0FBRyxFQUFFO0VBQUssQ0FBQyxFQUFFLEdBQUksQ0FBQztFQUN4RCxNQUFNQyxRQUFRLEdBQUdmLENBQUMsQ0FBQ2dCLEtBQUssQ0FBRUwsUUFBUSxDQUFDTSxNQUFNLEVBQUVWLElBQUssQ0FBQztFQUVqRCxLQUFNLElBQUlXLENBQUMsR0FBRyxDQUFDLEVBQUVBLENBQUMsR0FBR1AsUUFBUSxDQUFDTSxNQUFNLEVBQUVDLENBQUMsRUFBRSxFQUFHO0lBQzFDLE1BQU1DLFFBQVEsR0FBR1IsUUFBUSxDQUFFTyxDQUFDLENBQUUsQ0FBQyxDQUFDO0lBQ2hDLElBQUtDLFFBQVEsS0FBSyxPQUFPLElBQUloQixLQUFLLENBQUNTLElBQUksQ0FBQ1EsS0FBSyxDQUFHLE1BQUtELFFBQVMsRUFBRSxDQUFDLElBQUloQixLQUFLLENBQUNTLElBQUksQ0FBQ1MsTUFBTSxDQUFHLE1BQUtGLFFBQVMsT0FBTyxDQUFDLEVBQUc7TUFDaEhqQixhQUFhLENBQUNvQixJQUFJLENBQUVoQixPQUFPLEVBQUU7UUFBRVEsR0FBRyxFQUFHLE1BQUtLLFFBQVM7TUFBRSxDQUFDLEVBQUVJLEtBQUssSUFBSTtRQUMvRCxJQUFLQSxLQUFLLEVBQUc7VUFDWHBCLEtBQUssQ0FBQ3FCLEdBQUcsQ0FBQ0MsT0FBTyxDQUFHLFlBQVduQixPQUFRLGFBQVlhLFFBQVMsRUFBRSxDQUFDO1FBQ2pFO1FBQ0FKLFFBQVEsQ0FBQyxDQUFDO01BQ1osQ0FBRSxDQUFDO0lBQ0wsQ0FBQyxNQUNJO01BQ0hBLFFBQVEsQ0FBQyxDQUFDO0lBQ1o7RUFDRjtBQUNGLENBQUMiLCJpZ25vcmVMaXN0IjpbXX0=

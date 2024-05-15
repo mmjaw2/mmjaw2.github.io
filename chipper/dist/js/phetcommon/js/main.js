@@ -1,0 +1,14 @@
+// Copyright 2016-2024, University of Colorado Boulder
+
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import phetcommon from './phetcommon.js';
+import './model/Bucket.js';
+import './model/Fraction.js';
+import './model/SphereBucket.js';
+import './util/StringUtils.js';
+import './view/ModelViewTransform2.js';
+export default phetcommon;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJwaGV0Y29tbW9uIl0sInNvdXJjZXMiOlsibWFpbi50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAxNi0yMDI0LCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuaW1wb3J0IHBoZXRjb21tb24gZnJvbSAnLi9waGV0Y29tbW9uLmpzJztcclxuaW1wb3J0ICcuL21vZGVsL0J1Y2tldC5qcyc7XHJcbmltcG9ydCAnLi9tb2RlbC9GcmFjdGlvbi5qcyc7XHJcbmltcG9ydCAnLi9tb2RlbC9TcGhlcmVCdWNrZXQuanMnO1xyXG5pbXBvcnQgJy4vdXRpbC9TdHJpbmdVdGlscy5qcyc7XHJcbmltcG9ydCAnLi92aWV3L01vZGVsVmlld1RyYW5zZm9ybTIuanMnO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgcGhldGNvbW1vbjsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPQSxVQUFVLE1BQU0saUJBQWlCO0FBQ3hDLE9BQU8sbUJBQW1CO0FBQzFCLE9BQU8scUJBQXFCO0FBQzVCLE9BQU8seUJBQXlCO0FBQ2hDLE9BQU8sdUJBQXVCO0FBQzlCLE9BQU8sK0JBQStCO0FBRXRDLGVBQWVBLFVBQVUiLCJpZ25vcmVMaXN0IjpbXX0=

@@ -1,0 +1,26 @@
+// Copyright 2017, University of Colorado Boulder
+
+/**
+ * git checkout
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const gitCheckoutDirectory = require('./gitCheckoutDirectory');
+const assert = require('assert');
+
+/**
+ * Executes git checkout
+ * @public
+ *
+ * @param {string} repo - The repository name
+ * @param {string} target - The SHA/branch/whatnot to check out
+ * @returns {Promise.<string>} - Stdout
+ * @rejects {ExecuteError}
+ */
+module.exports = async function gitCheckout(repo, target) {
+  assert(typeof repo === 'string');
+  assert(typeof target === 'string');
+  await gitCheckoutDirectory(target, `../${repo}`);
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJnaXRDaGVja291dERpcmVjdG9yeSIsInJlcXVpcmUiLCJhc3NlcnQiLCJtb2R1bGUiLCJleHBvcnRzIiwiZ2l0Q2hlY2tvdXQiLCJyZXBvIiwidGFyZ2V0Il0sInNvdXJjZXMiOlsiZ2l0Q2hlY2tvdXQuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMTcsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIGdpdCBjaGVja291dFxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuY29uc3QgZ2l0Q2hlY2tvdXREaXJlY3RvcnkgPSByZXF1aXJlKCAnLi9naXRDaGVja291dERpcmVjdG9yeScgKTtcclxuY29uc3QgYXNzZXJ0ID0gcmVxdWlyZSggJ2Fzc2VydCcgKTtcclxuXHJcbi8qKlxyXG4gKiBFeGVjdXRlcyBnaXQgY2hlY2tvdXRcclxuICogQHB1YmxpY1xyXG4gKlxyXG4gKiBAcGFyYW0ge3N0cmluZ30gcmVwbyAtIFRoZSByZXBvc2l0b3J5IG5hbWVcclxuICogQHBhcmFtIHtzdHJpbmd9IHRhcmdldCAtIFRoZSBTSEEvYnJhbmNoL3doYXRub3QgdG8gY2hlY2sgb3V0XHJcbiAqIEByZXR1cm5zIHtQcm9taXNlLjxzdHJpbmc+fSAtIFN0ZG91dFxyXG4gKiBAcmVqZWN0cyB7RXhlY3V0ZUVycm9yfVxyXG4gKi9cclxubW9kdWxlLmV4cG9ydHMgPSBhc3luYyBmdW5jdGlvbiBnaXRDaGVja291dCggcmVwbywgdGFyZ2V0ICkge1xyXG4gIGFzc2VydCggdHlwZW9mIHJlcG8gPT09ICdzdHJpbmcnICk7XHJcbiAgYXNzZXJ0KCB0eXBlb2YgdGFyZ2V0ID09PSAnc3RyaW5nJyApO1xyXG5cclxuICBhd2FpdCBnaXRDaGVja291dERpcmVjdG9yeSggdGFyZ2V0LCBgLi4vJHtyZXBvfWAgKTtcclxufTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsTUFBTUEsb0JBQW9CLEdBQUdDLE9BQU8sQ0FBRSx3QkFBeUIsQ0FBQztBQUNoRSxNQUFNQyxNQUFNLEdBQUdELE9BQU8sQ0FBRSxRQUFTLENBQUM7O0FBRWxDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBRSxNQUFNLENBQUNDLE9BQU8sR0FBRyxlQUFlQyxXQUFXQSxDQUFFQyxJQUFJLEVBQUVDLE1BQU0sRUFBRztFQUMxREwsTUFBTSxDQUFFLE9BQU9JLElBQUksS0FBSyxRQUFTLENBQUM7RUFDbENKLE1BQU0sQ0FBRSxPQUFPSyxNQUFNLEtBQUssUUFBUyxDQUFDO0VBRXBDLE1BQU1QLG9CQUFvQixDQUFFTyxNQUFNLEVBQUcsTUFBS0QsSUFBSyxFQUFFLENBQUM7QUFDcEQsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

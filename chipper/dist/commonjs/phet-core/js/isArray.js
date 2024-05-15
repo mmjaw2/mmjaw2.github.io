@@ -1,0 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2013-2022, University of Colorado Boulder
+
+/**
+ * Tests whether a reference is to an array.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+function isArray(array) {
+  // yes, this is actually how to do this. see http://stackoverflow.com/questions/4775722/javascript-check-if-object-is-array
+  return Object.prototype.toString.call(array) === '[object Array]';
+}
+_phetCore["default"].register('isArray', isArray);
+var _default = exports["default"] = isArray;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJpc0FycmF5IiwiYXJyYXkiLCJPYmplY3QiLCJwcm90b3R5cGUiLCJ0b1N0cmluZyIsImNhbGwiLCJwaGV0Q29yZSIsInJlZ2lzdGVyIiwiX2RlZmF1bHQiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsiaXNBcnJheS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAxMy0yMDIyLCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBUZXN0cyB3aGV0aGVyIGEgcmVmZXJlbmNlIGlzIHRvIGFuIGFycmF5LlxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuaW1wb3J0IHBoZXRDb3JlIGZyb20gJy4vcGhldENvcmUuanMnO1xyXG5pbXBvcnQgSW50ZW50aW9uYWxBbnkgZnJvbSAnLi90eXBlcy9JbnRlbnRpb25hbEFueS5qcyc7XHJcblxyXG5mdW5jdGlvbiBpc0FycmF5KCBhcnJheTogSW50ZW50aW9uYWxBbnkgKTogYXJyYXkgaXMgSW50ZW50aW9uYWxBbnlbXSB7XHJcbiAgLy8geWVzLCB0aGlzIGlzIGFjdHVhbGx5IGhvdyB0byBkbyB0aGlzLiBzZWUgaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy80Nzc1NzIyL2phdmFzY3JpcHQtY2hlY2staWYtb2JqZWN0LWlzLWFycmF5XHJcbiAgcmV0dXJuIE9iamVjdC5wcm90b3R5cGUudG9TdHJpbmcuY2FsbCggYXJyYXkgKSA9PT0gJ1tvYmplY3QgQXJyYXldJztcclxufVxyXG5cclxucGhldENvcmUucmVnaXN0ZXIoICdpc0FycmF5JywgaXNBcnJheSApO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgaXNBcnJheTsiXSwibWFwcGluZ3MiOiI7Ozs7OztBQVFBLElBQUFBLFNBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUFxQyxTQUFBRCx1QkFBQUUsR0FBQSxXQUFBQSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxHQUFBRCxHQUFBLGdCQUFBQSxHQUFBO0FBUnJDOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBS0EsU0FBU0UsT0FBT0EsQ0FBRUMsS0FBcUIsRUFBOEI7RUFDbkU7RUFDQSxPQUFPQyxNQUFNLENBQUNDLFNBQVMsQ0FBQ0MsUUFBUSxDQUFDQyxJQUFJLENBQUVKLEtBQU0sQ0FBQyxLQUFLLGdCQUFnQjtBQUNyRTtBQUVBSyxvQkFBUSxDQUFDQyxRQUFRLENBQUUsU0FBUyxFQUFFUCxPQUFRLENBQUM7QUFBQyxJQUFBUSxRQUFBLEdBQUFDLE9BQUEsY0FFekJULE9BQU8iLCJpZ25vcmVMaXN0IjpbXX0=

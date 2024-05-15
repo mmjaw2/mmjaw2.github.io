@@ -1,0 +1,15 @@
+// Copyright 2022-2024, University of Colorado Boulder
+
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import twixt from './twixt.js';
+import './Animation.js';
+import './AnimationTarget.js';
+import './DampedAnimation.js';
+import './Easing.js';
+import './Transition.js';
+import './TransitionNode.js';
+export default twixt;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJ0d2l4dCJdLCJzb3VyY2VzIjpbIm1haW4udHMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjItMjAyNCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbyBCb3VsZGVyXHJcblxyXG4vKipcclxuICogQGF1dGhvciBKb25hdGhhbiBPbHNvbiA8am9uYXRoYW4ub2xzb25AY29sb3JhZG8uZWR1PlxyXG4gKi9cclxuXHJcbmltcG9ydCB0d2l4dCBmcm9tICcuL3R3aXh0LmpzJztcclxuaW1wb3J0ICcuL0FuaW1hdGlvbi5qcyc7XHJcbmltcG9ydCAnLi9BbmltYXRpb25UYXJnZXQuanMnO1xyXG5pbXBvcnQgJy4vRGFtcGVkQW5pbWF0aW9uLmpzJztcclxuaW1wb3J0ICcuL0Vhc2luZy5qcyc7XHJcbmltcG9ydCAnLi9UcmFuc2l0aW9uLmpzJztcclxuaW1wb3J0ICcuL1RyYW5zaXRpb25Ob2RlLmpzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IHR3aXh0OyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBOztBQUVBLE9BQU9BLEtBQUssTUFBTSxZQUFZO0FBQzlCLE9BQU8sZ0JBQWdCO0FBQ3ZCLE9BQU8sc0JBQXNCO0FBQzdCLE9BQU8sc0JBQXNCO0FBQzdCLE9BQU8sYUFBYTtBQUNwQixPQUFPLGlCQUFpQjtBQUN4QixPQUFPLHFCQUFxQjtBQUU1QixlQUFlQSxLQUFLIiwiaWdub3JlTGlzdCI6W119

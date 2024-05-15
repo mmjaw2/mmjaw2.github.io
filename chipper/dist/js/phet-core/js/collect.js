@@ -1,0 +1,23 @@
+// Copyright 2013-2023, University of Colorado Boulder
+
+/**
+ * Creates an array of results from an iterator that takes a callback.
+ *
+ * For instance, if calling a function f( g ) will call g( 1 ), g( 2 ), and g( 3 ),
+ * collect( function( callback ) { f( callback ); } );
+ * will return [1,2,3].
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import phetCore from './phetCore.js';
+function collect(iterate) {
+  const result = [];
+  iterate(ob => {
+    result.push(ob);
+  });
+  return result;
+}
+phetCore.register('collect', collect);
+export default collect;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJwaGV0Q29yZSIsImNvbGxlY3QiLCJpdGVyYXRlIiwicmVzdWx0Iiwib2IiLCJwdXNoIiwicmVnaXN0ZXIiXSwic291cmNlcyI6WyJjb2xsZWN0LnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDEzLTIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIENyZWF0ZXMgYW4gYXJyYXkgb2YgcmVzdWx0cyBmcm9tIGFuIGl0ZXJhdG9yIHRoYXQgdGFrZXMgYSBjYWxsYmFjay5cclxuICpcclxuICogRm9yIGluc3RhbmNlLCBpZiBjYWxsaW5nIGEgZnVuY3Rpb24gZiggZyApIHdpbGwgY2FsbCBnKCAxICksIGcoIDIgKSwgYW5kIGcoIDMgKSxcclxuICogY29sbGVjdCggZnVuY3Rpb24oIGNhbGxiYWNrICkgeyBmKCBjYWxsYmFjayApOyB9ICk7XHJcbiAqIHdpbGwgcmV0dXJuIFsxLDIsM10uXHJcbiAqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5pbXBvcnQgcGhldENvcmUgZnJvbSAnLi9waGV0Q29yZS5qcyc7XHJcblxyXG5mdW5jdGlvbiBjb2xsZWN0PFQ+KCBpdGVyYXRlOiAoIGZ1bmM6ICggaXRlbTogVCApID0+IHZvaWQgKSA9PiB2b2lkICk6IFRbXSB7XHJcbiAgY29uc3QgcmVzdWx0OiBUW10gPSBbXTtcclxuICBpdGVyYXRlKCBvYiA9PiB7XHJcbiAgICByZXN1bHQucHVzaCggb2IgKTtcclxuICB9ICk7XHJcbiAgcmV0dXJuIHJlc3VsdDtcclxufVxyXG5cclxucGhldENvcmUucmVnaXN0ZXIoICdjb2xsZWN0JywgY29sbGVjdCApO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgY29sbGVjdDsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPQSxRQUFRLE1BQU0sZUFBZTtBQUVwQyxTQUFTQyxPQUFPQSxDQUFLQyxPQUE4QyxFQUFRO0VBQ3pFLE1BQU1DLE1BQVcsR0FBRyxFQUFFO0VBQ3RCRCxPQUFPLENBQUVFLEVBQUUsSUFBSTtJQUNiRCxNQUFNLENBQUNFLElBQUksQ0FBRUQsRUFBRyxDQUFDO0VBQ25CLENBQUUsQ0FBQztFQUNILE9BQU9ELE1BQU07QUFDZjtBQUVBSCxRQUFRLENBQUNNLFFBQVEsQ0FBRSxTQUFTLEVBQUVMLE9BQVEsQ0FBQztBQUV2QyxlQUFlQSxPQUFPIiwiaWdub3JlTGlzdCI6W119

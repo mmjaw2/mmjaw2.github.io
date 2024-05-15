@@ -1,0 +1,50 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2021-2023, University of Colorado Boulder
+
+/**
+ * Generalized support for mutating objects that take ES5 getters/setters, similar to Node.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+/**
+ * For example:
+ *
+ * mutate( something, [ 'left', 'right', 'top', 'bottom' ], { top: 0, left: 5 } );
+ *
+ * will be equivalent to:
+ *
+ * something.left = 5;
+ * something.top = 0;
+ *
+ * First param will be mutated
+ */
+function mutate(target, orderedKeys, options) {
+  assert && assert(target);
+  assert && assert(Array.isArray(orderedKeys));
+  if (!options) {
+    return;
+  }
+  assert && assert(Object.getPrototypeOf(options) === Object.prototype, 'Extra prototype on options object is a code smell');
+  _.each(orderedKeys, function (key) {
+    // See https://github.com/phetsims/scenery/issues/580 for more about passing undefined.
+    // @ts-expect-error
+    assert && assert(!options.hasOwnProperty(key) || options[key] !== undefined, "Undefined not allowed for key: ".concat(key));
+
+    // @ts-expect-error
+    if (options[key] !== undefined) {
+      // @ts-expect-error
+      target[key] = options[key];
+    }
+  });
+}
+_phetCore["default"].register('mutate', mutate);
+var _default = exports["default"] = mutate;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJtdXRhdGUiLCJ0YXJnZXQiLCJvcmRlcmVkS2V5cyIsIm9wdGlvbnMiLCJhc3NlcnQiLCJBcnJheSIsImlzQXJyYXkiLCJPYmplY3QiLCJnZXRQcm90b3R5cGVPZiIsInByb3RvdHlwZSIsIl8iLCJlYWNoIiwia2V5IiwiaGFzT3duUHJvcGVydHkiLCJ1bmRlZmluZWQiLCJjb25jYXQiLCJwaGV0Q29yZSIsInJlZ2lzdGVyIiwiX2RlZmF1bHQiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsibXV0YXRlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDIxLTIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIEdlbmVyYWxpemVkIHN1cHBvcnQgZm9yIG11dGF0aW5nIG9iamVjdHMgdGhhdCB0YWtlIEVTNSBnZXR0ZXJzL3NldHRlcnMsIHNpbWlsYXIgdG8gTm9kZS5cclxuICpcclxuICogQGF1dGhvciBKb25hdGhhbiBPbHNvbiA8am9uYXRoYW4ub2xzb25AY29sb3JhZG8uZWR1PlxyXG4gKi9cclxuXHJcbmltcG9ydCBwaGV0Q29yZSBmcm9tICcuL3BoZXRDb3JlLmpzJztcclxuXHJcbi8qKlxyXG4gKiBGb3IgZXhhbXBsZTpcclxuICpcclxuICogbXV0YXRlKCBzb21ldGhpbmcsIFsgJ2xlZnQnLCAncmlnaHQnLCAndG9wJywgJ2JvdHRvbScgXSwgeyB0b3A6IDAsIGxlZnQ6IDUgfSApO1xyXG4gKlxyXG4gKiB3aWxsIGJlIGVxdWl2YWxlbnQgdG86XHJcbiAqXHJcbiAqIHNvbWV0aGluZy5sZWZ0ID0gNTtcclxuICogc29tZXRoaW5nLnRvcCA9IDA7XHJcbiAqXHJcbiAqIEZpcnN0IHBhcmFtIHdpbGwgYmUgbXV0YXRlZFxyXG4gKi9cclxuZnVuY3Rpb24gbXV0YXRlKCB0YXJnZXQ6IG9iamVjdCwgb3JkZXJlZEtleXM6IHN0cmluZ1tdLCBvcHRpb25zPzogb2JqZWN0ICk6IHZvaWQge1xyXG4gIGFzc2VydCAmJiBhc3NlcnQoIHRhcmdldCApO1xyXG4gIGFzc2VydCAmJiBhc3NlcnQoIEFycmF5LmlzQXJyYXkoIG9yZGVyZWRLZXlzICkgKTtcclxuXHJcbiAgaWYgKCAhb3B0aW9ucyApIHtcclxuICAgIHJldHVybjtcclxuICB9XHJcblxyXG4gIGFzc2VydCAmJiBhc3NlcnQoIE9iamVjdC5nZXRQcm90b3R5cGVPZiggb3B0aW9ucyApID09PSBPYmplY3QucHJvdG90eXBlLFxyXG4gICAgJ0V4dHJhIHByb3RvdHlwZSBvbiBvcHRpb25zIG9iamVjdCBpcyBhIGNvZGUgc21lbGwnICk7XHJcblxyXG4gIF8uZWFjaCggb3JkZXJlZEtleXMsIGtleSA9PiB7XHJcblxyXG4gICAgLy8gU2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9waGV0c2ltcy9zY2VuZXJ5L2lzc3Vlcy81ODAgZm9yIG1vcmUgYWJvdXQgcGFzc2luZyB1bmRlZmluZWQuXHJcbiAgICAvLyBAdHMtZXhwZWN0LWVycm9yXHJcbiAgICBhc3NlcnQgJiYgYXNzZXJ0KCAhb3B0aW9ucy5oYXNPd25Qcm9wZXJ0eSgga2V5ICkgfHwgb3B0aW9uc1sga2V5IF0gIT09IHVuZGVmaW5lZCxcclxuICAgICAgYFVuZGVmaW5lZCBub3QgYWxsb3dlZCBmb3Iga2V5OiAke2tleX1gICk7XHJcblxyXG4gICAgLy8gQHRzLWV4cGVjdC1lcnJvclxyXG4gICAgaWYgKCBvcHRpb25zWyBrZXkgXSAhPT0gdW5kZWZpbmVkICkge1xyXG4gICAgICAvLyBAdHMtZXhwZWN0LWVycm9yXHJcbiAgICAgIHRhcmdldFsga2V5IF0gPSBvcHRpb25zWyBrZXkgXSE7XHJcbiAgICB9XHJcbiAgfSApO1xyXG59XHJcblxyXG5waGV0Q29yZS5yZWdpc3RlciggJ211dGF0ZScsIG11dGF0ZSApO1xyXG5leHBvcnQgZGVmYXVsdCBtdXRhdGU7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFRQSxJQUFBQSxTQUFBLEdBQUFDLHNCQUFBLENBQUFDLE9BQUE7QUFBcUMsU0FBQUQsdUJBQUFFLEdBQUEsV0FBQUEsR0FBQSxJQUFBQSxHQUFBLENBQUFDLFVBQUEsR0FBQUQsR0FBQSxnQkFBQUEsR0FBQTtBQVJyQzs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUlBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQVNFLE1BQU1BLENBQUVDLE1BQWMsRUFBRUMsV0FBcUIsRUFBRUMsT0FBZ0IsRUFBUztFQUMvRUMsTUFBTSxJQUFJQSxNQUFNLENBQUVILE1BQU8sQ0FBQztFQUMxQkcsTUFBTSxJQUFJQSxNQUFNLENBQUVDLEtBQUssQ0FBQ0MsT0FBTyxDQUFFSixXQUFZLENBQUUsQ0FBQztFQUVoRCxJQUFLLENBQUNDLE9BQU8sRUFBRztJQUNkO0VBQ0Y7RUFFQUMsTUFBTSxJQUFJQSxNQUFNLENBQUVHLE1BQU0sQ0FBQ0MsY0FBYyxDQUFFTCxPQUFRLENBQUMsS0FBS0ksTUFBTSxDQUFDRSxTQUFTLEVBQ3JFLG1EQUFvRCxDQUFDO0VBRXZEQyxDQUFDLENBQUNDLElBQUksQ0FBRVQsV0FBVyxFQUFFLFVBQUFVLEdBQUcsRUFBSTtJQUUxQjtJQUNBO0lBQ0FSLE1BQU0sSUFBSUEsTUFBTSxDQUFFLENBQUNELE9BQU8sQ0FBQ1UsY0FBYyxDQUFFRCxHQUFJLENBQUMsSUFBSVQsT0FBTyxDQUFFUyxHQUFHLENBQUUsS0FBS0UsU0FBUyxvQ0FBQUMsTUFBQSxDQUM1Q0gsR0FBRyxDQUFHLENBQUM7O0lBRTNDO0lBQ0EsSUFBS1QsT0FBTyxDQUFFUyxHQUFHLENBQUUsS0FBS0UsU0FBUyxFQUFHO01BQ2xDO01BQ0FiLE1BQU0sQ0FBRVcsR0FBRyxDQUFFLEdBQUdULE9BQU8sQ0FBRVMsR0FBRyxDQUFHO0lBQ2pDO0VBQ0YsQ0FBRSxDQUFDO0FBQ0w7QUFFQUksb0JBQVEsQ0FBQ0MsUUFBUSxDQUFFLFFBQVEsRUFBRWpCLE1BQU8sQ0FBQztBQUFDLElBQUFrQixRQUFBLEdBQUFDLE9BQUEsY0FDdkJuQixNQUFNIiwiaWdub3JlTGlzdCI6W119

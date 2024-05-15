@@ -1,0 +1,10 @@
+"use strict";
+
+// Copyright 2018-2021, University of Colorado Boulder
+// @author Michael Kauzmann
+
+module.exports = {
+  // Use all of the default rules from eslint file for node code.
+  "extends": '../../../chipper/eslint/chipper_eslintrc.js'
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJtb2R1bGUiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsiLmVzbGludHJjLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE4LTIwMjEsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG4vLyBAYXV0aG9yIE1pY2hhZWwgS2F1em1hbm5cclxuXHJcbm1vZHVsZS5leHBvcnRzID0ge1xyXG5cclxuICAvLyBVc2UgYWxsIG9mIHRoZSBkZWZhdWx0IHJ1bGVzIGZyb20gZXNsaW50IGZpbGUgZm9yIG5vZGUgY29kZS5cclxuICBleHRlbmRzOiAnLi4vLi4vLi4vY2hpcHBlci9lc2xpbnQvY2hpcHBlcl9lc2xpbnRyYy5qcydcclxufTsiXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTs7QUFFQUEsTUFBTSxDQUFDQyxPQUFPLEdBQUc7RUFFZjtFQUNBLFdBQVM7QUFDWCxDQUFDIiwiaWdub3JlTGlzdCI6W119

@@ -1,0 +1,24 @@
+// Copyright 2023, University of Colorado Boulder
+
+/**
+ * git pull
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const execute = require('./execute');
+const winston = require('../../../../../../perennial-alias/node_modules/winston');
+
+/**
+ * Executes git pull
+ * @public
+ *
+ * @param {string} directory
+ * @returns {Promise.<string>} - Stdout
+ * @rejects {ExecuteError}
+ */
+module.exports = function (directory) {
+  winston.info(`git pull in ${directory}`);
+  return execute('git', ['pull'], directory);
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJleGVjdXRlIiwicmVxdWlyZSIsIndpbnN0b24iLCJtb2R1bGUiLCJleHBvcnRzIiwiZGlyZWN0b3J5IiwiaW5mbyJdLCJzb3VyY2VzIjpbImdpdFB1bGxEaXJlY3RvcnkuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIGdpdCBwdWxsXHJcbiAqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5jb25zdCBleGVjdXRlID0gcmVxdWlyZSggJy4vZXhlY3V0ZScgKTtcclxuY29uc3Qgd2luc3RvbiA9IHJlcXVpcmUoICd3aW5zdG9uJyApO1xyXG5cclxuLyoqXHJcbiAqIEV4ZWN1dGVzIGdpdCBwdWxsXHJcbiAqIEBwdWJsaWNcclxuICpcclxuICogQHBhcmFtIHtzdHJpbmd9IGRpcmVjdG9yeVxyXG4gKiBAcmV0dXJucyB7UHJvbWlzZS48c3RyaW5nPn0gLSBTdGRvdXRcclxuICogQHJlamVjdHMge0V4ZWN1dGVFcnJvcn1cclxuICovXHJcbm1vZHVsZS5leHBvcnRzID0gZnVuY3Rpb24oIGRpcmVjdG9yeSApIHtcclxuICB3aW5zdG9uLmluZm8oIGBnaXQgcHVsbCBpbiAke2RpcmVjdG9yeX1gICk7XHJcblxyXG4gIHJldHVybiBleGVjdXRlKCAnZ2l0JywgWyAncHVsbCcgXSwgZGlyZWN0b3J5ICk7XHJcbn07Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLE1BQU1BLE9BQU8sR0FBR0MsT0FBTyxDQUFFLFdBQVksQ0FBQztBQUN0QyxNQUFNQyxPQUFPLEdBQUdELE9BQU8sQ0FBRSxTQUFVLENBQUM7O0FBRXBDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQUUsTUFBTSxDQUFDQyxPQUFPLEdBQUcsVUFBVUMsU0FBUyxFQUFHO0VBQ3JDSCxPQUFPLENBQUNJLElBQUksQ0FBRyxlQUFjRCxTQUFVLEVBQUUsQ0FBQztFQUUxQyxPQUFPTCxPQUFPLENBQUUsS0FBSyxFQUFFLENBQUUsTUFBTSxDQUFFLEVBQUVLLFNBQVUsQ0FBQztBQUNoRCxDQUFDIiwiaWdub3JlTGlzdCI6W119

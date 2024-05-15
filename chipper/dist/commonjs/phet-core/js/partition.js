@@ -1,0 +1,36 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2014-2023, University of Colorado Boulder
+
+/**
+ * Partitions an array into two arrays: the first contains all elements that satisfy the predicate, and the second
+ * contains all the (other) elements that do not satisfy the predicate.
+ *
+ * e.g. partition( [1,2,3,4], function( n ) { return n % 2 === 0; } ) will return [[2,4],[1,3]]
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+function partition(array, predicate) {
+  assert && assert(Array.isArray(array));
+  var satisfied = [];
+  var unsatisfied = [];
+  var length = array.length;
+  for (var i = 0; i < length; i++) {
+    if (predicate(array[i])) {
+      satisfied.push(array[i]);
+    } else {
+      unsatisfied.push(array[i]);
+    }
+  }
+  return [satisfied, unsatisfied];
+}
+_phetCore["default"].register('partition', partition);
+var _default = exports["default"] = partition;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJwYXJ0aXRpb24iLCJhcnJheSIsInByZWRpY2F0ZSIsImFzc2VydCIsIkFycmF5IiwiaXNBcnJheSIsInNhdGlzZmllZCIsInVuc2F0aXNmaWVkIiwibGVuZ3RoIiwiaSIsInB1c2giLCJwaGV0Q29yZSIsInJlZ2lzdGVyIiwiX2RlZmF1bHQiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsicGFydGl0aW9uLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE0LTIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIFBhcnRpdGlvbnMgYW4gYXJyYXkgaW50byB0d28gYXJyYXlzOiB0aGUgZmlyc3QgY29udGFpbnMgYWxsIGVsZW1lbnRzIHRoYXQgc2F0aXNmeSB0aGUgcHJlZGljYXRlLCBhbmQgdGhlIHNlY29uZFxyXG4gKiBjb250YWlucyBhbGwgdGhlIChvdGhlcikgZWxlbWVudHMgdGhhdCBkbyBub3Qgc2F0aXNmeSB0aGUgcHJlZGljYXRlLlxyXG4gKlxyXG4gKiBlLmcuIHBhcnRpdGlvbiggWzEsMiwzLDRdLCBmdW5jdGlvbiggbiApIHsgcmV0dXJuIG4gJSAyID09PSAwOyB9ICkgd2lsbCByZXR1cm4gW1syLDRdLFsxLDNdXVxyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuaW1wb3J0IHBoZXRDb3JlIGZyb20gJy4vcGhldENvcmUuanMnO1xyXG5cclxuZnVuY3Rpb24gcGFydGl0aW9uPFQ+KCBhcnJheTogVFtdLCBwcmVkaWNhdGU6ICggZWxlbWVudDogVCApID0+IGJvb2xlYW4gKTogcmVhZG9ubHlbIFRbXSwgVFtdIF0ge1xyXG4gIGFzc2VydCAmJiBhc3NlcnQoIEFycmF5LmlzQXJyYXkoIGFycmF5ICkgKTtcclxuXHJcbiAgY29uc3Qgc2F0aXNmaWVkID0gW107XHJcbiAgY29uc3QgdW5zYXRpc2ZpZWQgPSBbXTtcclxuICBjb25zdCBsZW5ndGggPSBhcnJheS5sZW5ndGg7XHJcbiAgZm9yICggbGV0IGkgPSAwOyBpIDwgbGVuZ3RoOyBpKysgKSB7XHJcbiAgICBpZiAoIHByZWRpY2F0ZSggYXJyYXlbIGkgXSApICkge1xyXG4gICAgICBzYXRpc2ZpZWQucHVzaCggYXJyYXlbIGkgXSApO1xyXG4gICAgfVxyXG4gICAgZWxzZSB7XHJcbiAgICAgIHVuc2F0aXNmaWVkLnB1c2goIGFycmF5WyBpIF0gKTtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIHJldHVybiBbIHNhdGlzZmllZCwgdW5zYXRpc2ZpZWQgXTtcclxufVxyXG5cclxucGhldENvcmUucmVnaXN0ZXIoICdwYXJ0aXRpb24nLCBwYXJ0aXRpb24gKTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IHBhcnRpdGlvbjsiXSwibWFwcGluZ3MiOiI7Ozs7OztBQVdBLElBQUFBLFNBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUFxQyxTQUFBRCx1QkFBQUUsR0FBQSxXQUFBQSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxHQUFBRCxHQUFBLGdCQUFBQSxHQUFBO0FBWHJDOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBSUEsU0FBU0UsU0FBU0EsQ0FBS0MsS0FBVSxFQUFFQyxTQUFvQyxFQUF5QjtFQUM5RkMsTUFBTSxJQUFJQSxNQUFNLENBQUVDLEtBQUssQ0FBQ0MsT0FBTyxDQUFFSixLQUFNLENBQUUsQ0FBQztFQUUxQyxJQUFNSyxTQUFTLEdBQUcsRUFBRTtFQUNwQixJQUFNQyxXQUFXLEdBQUcsRUFBRTtFQUN0QixJQUFNQyxNQUFNLEdBQUdQLEtBQUssQ0FBQ08sTUFBTTtFQUMzQixLQUFNLElBQUlDLENBQUMsR0FBRyxDQUFDLEVBQUVBLENBQUMsR0FBR0QsTUFBTSxFQUFFQyxDQUFDLEVBQUUsRUFBRztJQUNqQyxJQUFLUCxTQUFTLENBQUVELEtBQUssQ0FBRVEsQ0FBQyxDQUFHLENBQUMsRUFBRztNQUM3QkgsU0FBUyxDQUFDSSxJQUFJLENBQUVULEtBQUssQ0FBRVEsQ0FBQyxDQUFHLENBQUM7SUFDOUIsQ0FBQyxNQUNJO01BQ0hGLFdBQVcsQ0FBQ0csSUFBSSxDQUFFVCxLQUFLLENBQUVRLENBQUMsQ0FBRyxDQUFDO0lBQ2hDO0VBQ0Y7RUFFQSxPQUFPLENBQUVILFNBQVMsRUFBRUMsV0FBVyxDQUFFO0FBQ25DO0FBRUFJLG9CQUFRLENBQUNDLFFBQVEsQ0FBRSxXQUFXLEVBQUVaLFNBQVUsQ0FBQztBQUFDLElBQUFhLFFBQUEsR0FBQUMsT0FBQSxjQUU3QmQsU0FBUyIsImlnbm9yZUxpc3QiOltdfQ==

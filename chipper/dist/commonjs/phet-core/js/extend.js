@@ -1,0 +1,36 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2013-2023, University of Colorado Boulder
+
+/**
+ * Like Underscore's _.extend and PHET_CORE/merge, but with hardcoded support for ES5 getters/setters. In general this
+ * type shouldn't be used for phet's options pattern, and instead was designed to support extension for defining
+ * mixins and object prototypes.
+ *
+ * See https://github.com/documentcloud/underscore/pull/986.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+function extend(obj) {
+  for (var _len = arguments.length, sources = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    sources[_key - 1] = arguments[_key];
+  }
+  _.each(sources, function (source) {
+    if (source) {
+      for (var prop in source) {
+        Object.defineProperty(obj, prop, Object.getOwnPropertyDescriptor(source, prop));
+      }
+    }
+  });
+  return obj;
+}
+_phetCore["default"].register('extend', extend);
+var _default = exports["default"] = extend;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJleHRlbmQiLCJfbGVuIiwiYXJndW1lbnRzIiwibGVuZ3RoIiwic291cmNlcyIsIkFycmF5IiwiX2tleSIsIl8iLCJlYWNoIiwic291cmNlIiwicHJvcCIsIk9iamVjdCIsImRlZmluZVByb3BlcnR5IiwiZ2V0T3duUHJvcGVydHlEZXNjcmlwdG9yIiwicGhldENvcmUiLCJyZWdpc3RlciIsIl9kZWZhdWx0IiwiZXhwb3J0cyJdLCJzb3VyY2VzIjpbImV4dGVuZC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAxMy0yMDIzLCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBMaWtlIFVuZGVyc2NvcmUncyBfLmV4dGVuZCBhbmQgUEhFVF9DT1JFL21lcmdlLCBidXQgd2l0aCBoYXJkY29kZWQgc3VwcG9ydCBmb3IgRVM1IGdldHRlcnMvc2V0dGVycy4gSW4gZ2VuZXJhbCB0aGlzXHJcbiAqIHR5cGUgc2hvdWxkbid0IGJlIHVzZWQgZm9yIHBoZXQncyBvcHRpb25zIHBhdHRlcm4sIGFuZCBpbnN0ZWFkIHdhcyBkZXNpZ25lZCB0byBzdXBwb3J0IGV4dGVuc2lvbiBmb3IgZGVmaW5pbmdcclxuICogbWl4aW5zIGFuZCBvYmplY3QgcHJvdG90eXBlcy5cclxuICpcclxuICogU2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9kb2N1bWVudGNsb3VkL3VuZGVyc2NvcmUvcHVsbC85ODYuXHJcbiAqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5pbXBvcnQgcGhldENvcmUgZnJvbSAnLi9waGV0Q29yZS5qcyc7XHJcblxyXG5mdW5jdGlvbiBleHRlbmQ8VD4oIG9iajogVCwgLi4uc291cmNlczogQXJyYXk8b2JqZWN0IHwgdW5kZWZpbmVkPiApOiBUIHtcclxuICBfLmVhY2goIHNvdXJjZXMsIHNvdXJjZSA9PiB7XHJcbiAgICBpZiAoIHNvdXJjZSApIHtcclxuICAgICAgZm9yICggY29uc3QgcHJvcCBpbiBzb3VyY2UgKSB7XHJcbiAgICAgICAgT2JqZWN0LmRlZmluZVByb3BlcnR5KCBvYmosIHByb3AsIE9iamVjdC5nZXRPd25Qcm9wZXJ0eURlc2NyaXB0b3IoIHNvdXJjZSwgcHJvcCApISApO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfSApO1xyXG4gIHJldHVybiBvYmo7XHJcbn1cclxuXHJcbnBoZXRDb3JlLnJlZ2lzdGVyKCAnZXh0ZW5kJywgZXh0ZW5kICk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBleHRlbmQ7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFZQSxJQUFBQSxTQUFBLEdBQUFDLHNCQUFBLENBQUFDLE9BQUE7QUFBcUMsU0FBQUQsdUJBQUFFLEdBQUEsV0FBQUEsR0FBQSxJQUFBQSxHQUFBLENBQUFDLFVBQUEsR0FBQUQsR0FBQSxnQkFBQUEsR0FBQTtBQVpyQzs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBSUEsU0FBU0UsTUFBTUEsQ0FBS0YsR0FBTSxFQUE2QztFQUFBLFNBQUFHLElBQUEsR0FBQUMsU0FBQSxDQUFBQyxNQUFBLEVBQXhDQyxPQUFPLE9BQUFDLEtBQUEsQ0FBQUosSUFBQSxPQUFBQSxJQUFBLFdBQUFLLElBQUEsTUFBQUEsSUFBQSxHQUFBTCxJQUFBLEVBQUFLLElBQUE7SUFBUEYsT0FBTyxDQUFBRSxJQUFBLFFBQUFKLFNBQUEsQ0FBQUksSUFBQTtFQUFBO0VBQ3BDQyxDQUFDLENBQUNDLElBQUksQ0FBRUosT0FBTyxFQUFFLFVBQUFLLE1BQU0sRUFBSTtJQUN6QixJQUFLQSxNQUFNLEVBQUc7TUFDWixLQUFNLElBQU1DLElBQUksSUFBSUQsTUFBTSxFQUFHO1FBQzNCRSxNQUFNLENBQUNDLGNBQWMsQ0FBRWQsR0FBRyxFQUFFWSxJQUFJLEVBQUVDLE1BQU0sQ0FBQ0Usd0JBQXdCLENBQUVKLE1BQU0sRUFBRUMsSUFBSyxDQUFHLENBQUM7TUFDdEY7SUFDRjtFQUNGLENBQUUsQ0FBQztFQUNILE9BQU9aLEdBQUc7QUFDWjtBQUVBZ0Isb0JBQVEsQ0FBQ0MsUUFBUSxDQUFFLFFBQVEsRUFBRWYsTUFBTyxDQUFDO0FBQUMsSUFBQWdCLFFBQUEsR0FBQUMsT0FBQSxjQUV2QmpCLE1BQU0iLCJpZ25vcmVMaXN0IjpbXX0=

@@ -1,0 +1,998 @@
+{
+  "material.air": {
+    "value": "공기",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "공기"
+      }
+    ]
+  },
+  "material.aluminum": {
+    "value": "알루미늄",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "알루미늄"
+      }
+    ]
+  },
+  "material.apple": {
+    "value": "사과",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "사과"
+      }
+    ]
+  },
+  "average": {
+    "value": "평균",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "평균"
+      }
+    ]
+  },
+  "blocks": {
+    "value": "블록",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "블록"
+      }
+    ]
+  },
+  "material.brick": {
+    "value": "벽돌",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "벽돌"
+      }
+    ]
+  },
+  "material.cement": {
+    "value": "시멘트",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "시멘트"
+      }
+    ]
+  },
+  "material.copper": {
+    "value": "구리",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "구리"
+      }
+    ]
+  },
+  "material.custom": {
+    "value": "관례",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "관례"
+      }
+    ]
+  },
+  "gravity.custom": {
+    "value": "관례",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "관례"
+      }
+    ]
+  },
+  "density": {
+    "value": "밀도",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "밀도"
+      }
+    ]
+  },
+  "densityReadout": {
+    "value": "밀도 (kg/L)",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": " 밀도 (kg/L)"
+      },
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": " 밀도 (kg/L)",
+        "newValue": "밀도 (kg/L)",
+        "explanation": null
+      }
+    ]
+  },
+  "densityKgL": {
+    "value": "밀도 (kg/L)",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "밀도 (kg/L)"
+      }
+    ]
+  },
+  "densityTable": {
+    "value": "밀도표",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "밀도표"
+      }
+    ]
+  },
+  "material.diamond": {
+    "value": "다이아몬드",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "다이아몬드"
+      }
+    ]
+  },
+  "gravity.earth": {
+    "value": "지구",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "지구"
+      }
+    ]
+  },
+  "material.gasoline": {
+    "value": "가솔린",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "가솔린"
+      }
+    ]
+  },
+  "material.glass": {
+    "value": "유리",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "유리"
+      }
+    ]
+  },
+  "material.gold": {
+    "value": "금",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "금"
+      }
+    ]
+  },
+  "material.honey": {
+    "value": "꿀",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "꿀"
+      }
+    ]
+  },
+  "material.human": {
+    "value": "인간",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "인간"
+      }
+    ]
+  },
+  "material.ice": {
+    "value": "얼음",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "얼음"
+      }
+    ]
+  },
+  "gravity.jupiter": {
+    "value": "목성",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "목성"
+      }
+    ]
+  },
+  "material.lead": {
+    "value": "납",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "납"
+      }
+    ]
+  },
+  "mass": {
+    "value": "질량",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "질량"
+      }
+    ]
+  },
+  "material.name": {
+    "value": "물질",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "물질"
+      }
+    ]
+  },
+  "material.mercury": {
+    "value": "수은",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "수은"
+      }
+    ]
+  },
+  "gravity.moon": {
+    "value": "달",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "달"
+      }
+    ]
+  },
+  "material.oil": {
+    "value": "석유",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "석유"
+      }
+    ]
+  },
+  "gravity.planetX": {
+    "value": "행성 X",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "행성 X"
+      }
+    ]
+  },
+  "material.platinum": {
+    "value": "백금",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "백금"
+      }
+    ]
+  },
+  "material.pyrite": {
+    "value": "황철광",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "황철광"
+      }
+    ]
+  },
+  "blockSet.random": {
+    "value": "무작위",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "무작위"
+      }
+    ]
+  },
+  "blockSet.sameDensity": {
+    "value": "같은 밀도",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "같은 밀도"
+      }
+    ]
+  },
+  "blockSet.sameMass": {
+    "value": "같은 질량",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "같은 질량"
+      }
+    ]
+  },
+  "blockSet.sameVolume": {
+    "value": "같은 부피",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "같은 부피"
+      }
+    ]
+  },
+  "material.sand": {
+    "value": "모래",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "모래"
+      }
+    ]
+  },
+  "material.seawater": {
+    "value": "바닷물",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "바닷물"
+      }
+    ]
+  },
+  "material.silver": {
+    "value": "은",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "은"
+      }
+    ]
+  },
+  "material.steel": {
+    "value": "강철",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "강철"
+      }
+    ]
+  },
+  "material.styrofoam": {
+    "value": "스티로폼",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "스티로폼"
+      }
+    ]
+  },
+  "material.tantalum": {
+    "value": "탄탈륨",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "탄탈륨"
+      }
+    ]
+  },
+  "material.titanium": {
+    "value": "티타늄",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "티타늄"
+      }
+    ]
+  },
+  "volume": {
+    "value": "부피",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "부피"
+      }
+    ]
+  },
+  "material.water": {
+    "value": "물",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "물"
+      }
+    ]
+  },
+  "material.wood": {
+    "value": "목재",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1675336710562,
+        "oldValue": "",
+        "newValue": "목재"
+      }
+    ]
+  },
+  "kilogramsPattern": {
+    "value": "{{kilograms}} kg",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "{{kilograms}} kg"
+      }
+    ]
+  },
+  "densityReadoutDecimetersCubed": {
+    "value": "밀도 (kg/dm<sup>3</sup>)",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 (kg/dm<sup>3</sup>)"
+      }
+    ]
+  },
+  "blockSet.set1": {
+    "value": "1조",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "Set 1"
+      },
+      {
+        "userId": 154927,
+        "timestamp": 1701133656931,
+        "oldValue": "Set 1",
+        "newValue": "1조",
+        "explanation": null
+      }
+    ]
+  },
+  "blockSet.set2": {
+    "value": "2조",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "Set 2"
+      },
+      {
+        "userId": 154927,
+        "timestamp": 1701133656931,
+        "oldValue": "Set 2",
+        "newValue": "2조",
+        "explanation": null
+      }
+    ]
+  },
+  "blockSet.set3": {
+    "value": "3조",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "Set 3"
+      },
+      {
+        "userId": 154927,
+        "timestamp": 1701133656931,
+        "oldValue": "Set 3",
+        "newValue": "3조",
+        "explanation": null
+      }
+    ]
+  },
+  "volumeUnits": {
+    "value": "부피 단위:",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "부피 단위:"
+      }
+    ]
+  },
+  "liters": {
+    "value": "L",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "L"
+      }
+    ]
+  },
+  "decimetersCubed": {
+    "value": "dm<sup>3</sup>",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "dm<sup>3</sup>"
+      }
+    ]
+  },
+  "litersPattern": {
+    "value": "{{liters}} L",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "{{liters}} L"
+      }
+    ]
+  },
+  "decimetersCubedPattern": {
+    "value": "{{decimetersCubed}} dm<sup>3</sup>",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "{{decimetersCubed}} dm<sup>3</sup>"
+      }
+    ]
+  },
+  "kilogramsPerLiterPattern": {
+    "value": "{{value}} kg/L",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "{{value}} kg/L"
+      }
+    ]
+  },
+  "kilogramsPerDecimeterCubedPattern": {
+    "value": "{{value}} kg/dm<sup>3</sup>",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "{{value}} kg/dm<sup>3</sup>"
+      }
+    ]
+  },
+  "massLabel.1a": {
+    "value": "1A",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "1A"
+      }
+    ]
+  },
+  "massLabel.1b": {
+    "value": "1B",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "1B"
+      }
+    ]
+  },
+  "massLabel.1c": {
+    "value": "1C",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "1C"
+      }
+    ]
+  },
+  "massLabel.1d": {
+    "value": "1D",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "1D"
+      }
+    ]
+  },
+  "massLabel.1e": {
+    "value": "1E",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "1E"
+      }
+    ]
+  },
+  "massLabel.2a": {
+    "value": "2A",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "2A"
+      }
+    ]
+  },
+  "massLabel.2b": {
+    "value": "2B",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "2B"
+      }
+    ]
+  },
+  "massLabel.2c": {
+    "value": "2C",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "2C"
+      }
+    ]
+  },
+  "massLabel.2d": {
+    "value": "2D",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "2D"
+      }
+    ]
+  },
+  "massLabel.2e": {
+    "value": "2E",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "2E"
+      }
+    ]
+  },
+  "massLabel.3a": {
+    "value": "3A",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "3A"
+      }
+    ]
+  },
+  "massLabel.3b": {
+    "value": "3B",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "3B"
+      }
+    ]
+  },
+  "massLabel.3c": {
+    "value": "3C",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "3C"
+      }
+    ]
+  },
+  "massLabel.a": {
+    "value": "A",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "A"
+      }
+    ]
+  },
+  "massLabel.b": {
+    "value": "B",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "B"
+      }
+    ]
+  },
+  "massLabel.c": {
+    "value": "C",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "C"
+      }
+    ]
+  },
+  "massLabel.d": {
+    "value": "D",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "D"
+      }
+    ]
+  },
+  "massLabel.e": {
+    "value": "E",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "E"
+      }
+    ]
+  },
+  "newtonsPattern": {
+    "value": "{{newtons}} N",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "{{newtons}} N"
+      }
+    ]
+  },
+  "massLabel.primary": {
+    "value": "A",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "A"
+      }
+    ]
+  },
+  "massLabel.secondary": {
+    "value": "B",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "B"
+      }
+    ]
+  },
+  "material.densityA": {
+    "value": "밀도y A",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도y A"
+      }
+    ]
+  },
+  "material.densityB": {
+    "value": "밀도 B",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 B"
+      }
+    ]
+  },
+  "material.densityC": {
+    "value": "밀도 C",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 C"
+      }
+    ]
+  },
+  "material.densityD": {
+    "value": "밀도 D",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 D"
+      }
+    ]
+  },
+  "material.densityE": {
+    "value": "밀도 E",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 E"
+      }
+    ]
+  },
+  "material.densityF": {
+    "value": "밀도 F",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 F"
+      }
+    ]
+  },
+  "densityKgdm3": {
+    "value": "밀도 (kg/dm<sup>3</sup>)",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133517142,
+        "oldValue": "",
+        "newValue": "밀도 (kg/dm<sup>3</sup>)"
+      }
+    ]
+  },
+  "massLabel.3d": {
+    "value": "3D",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133656931,
+        "oldValue": "",
+        "newValue": "3D"
+      }
+    ]
+  },
+  "massLabel.3e": {
+    "value": "3E",
+    "history": [
+      {
+        "userId": 154927,
+        "timestamp": 1701133656931,
+        "oldValue": "",
+        "newValue": "3E"
+      }
+    ]
+  }
+}

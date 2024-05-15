@@ -1,0 +1,141 @@
+// Copyright 2024, University of Colorado Boulder
+
+/**
+ * This script automates the process of tightening access modifiers within TypeScript files in a specified project.
+ * It iterates over TypeScript files in the 'js/' directory, attempting to change public and protected class members
+ * to private. It then runs the TypeScript type checker to validate these changes. If the type checker fails, it
+ * escalates the access level from private to protected, and if necessary, back to public, testing the build at each
+ * stage. This helps in enforcing stricter encapsulation in the codebase.
+ *
+ * Usage:
+ * cd chipper/
+ * node js/scripts/restrictAccessModifiers.js [relative-path-to-repo-directory]
+ *
+ * Parameters:
+ * [relative-path-to-repo-directory] - The path to the repository where TypeScript files are located. This script assumes
+ *                            a 'tsconfig.json' file is present at the root of the specified directory.
+ *
+ * Options:
+ * --help                   - Displays this help message and exits.
+ *
+ * Example:
+ * node js/scripts/restrictAccessModifiers.js ../my-ts-project
+ *
+ * Note:
+ * - Ensure that 'tsconfig.json' is correctly set up in your project root.
+ * - The script currently targets files within the 'js/' directory by default. Adjust the glob pattern in the
+ *   getSourceFiles method call if your project structure differs.
+ * - This script requires Node.js and the 'ts-morph' and 'child_process' packages.
+ * - The script makes changes to the repo as it progresses. If you look at the source files while this script is running
+ *   you will see the changes being made to trial values.
+ *
+ * @author Sam Reid (PhET Interactive Simulations)
+ * @author Matt Blackman (PhET Interactive Simulations)
+ */
+
+import { Project } from 'ts-morph';
+import { execSync } from 'child_process';
+
+// Function to tighten accessibility annotations
+async function restrictAccessModifiers(repoPath) {
+  // Initialize a new ts-morph Project
+  const project = new Project({
+    // Assuming tsconfig.json is in the root, adjust if necessary
+    tsConfigFilePath: `${repoPath}/tsconfig.json`
+  });
+  const sourceFiles = project.getSourceFiles(`${repoPath}/js/**/*.ts`); // Adjust the glob pattern as necessary
+
+  for (const sourceFile of sourceFiles) {
+    const classes = sourceFile.getClasses();
+    for (const classDeclaration of classes) {
+      console.log(`# Processing class: ${classDeclaration.getName()}`);
+      const members = [...classDeclaration.getInstanceProperties(), ...classDeclaration.getInstanceMethods(), ...classDeclaration.getStaticProperties(), ...classDeclaration.getStaticMethods()];
+      for (const member of members) {
+        console.log(member.getScope() + ' ' + member.getName());
+        if (member.getScope() === 'public' || member.getScope() === 'protected') {
+          // Try setting to private
+          member.setScope('private');
+          await sourceFile.save();
+          if (!isBuildSuccessful()) {
+            // If not successful, try protected
+            member.setScope('protected');
+            await sourceFile.save();
+            if (!isBuildSuccessful()) {
+              // If still not successful, revert to public
+              member.setScope('public');
+              await sourceFile.save();
+            } else {
+              console.log(`    Successfully changed ${member.getName()} to protected.`);
+            }
+          } else {
+            console.log(`    Successfully changed ${member.getName()} to private.`);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Check if there is a --help command line argument
+if (process.argv.includes('--help')) {
+  console.log(`
+\x1b[1mUsage:\x1b[0m
+  \x1b[36mcd chipper/\x1b[0m
+  \x1b[36mnode js/scripts/restrictAccessModifiers.js [relative-path-to-repo-directory]\x1b[0m
+
+\x1b[1mParameters:\x1b[0m
+  \x1b[33m[relative-path-to-repo-directory]\x1b[0m - The path to the repository where TypeScript files are located. Assumes
+                           a 'tsconfig.json' file is present at the root of the specified directory.
+
+\x1b[1mOptions:\x1b[0m
+  \x1b[32m--help\x1b[0m                  - Displays this help message and exits.
+
+\x1b[1mExample:\x1b[0m
+  \x1b[36mnode js/scripts/restrictAccessModifiers.js ../my-ts-project\x1b[0m
+
+\x1b[1mNote:\x1b[0m
+- Ensure that 'tsconfig.json' is correctly set up in your project root.
+- The script currently targets files within the 'js/' directory by default. Adjust the glob pattern in the
+  getSourceFiles method call if your project structure differs.
+- This script requires Node.js and the 'ts-morph' and 'child_process' packages.
+- The script makes changes to the repo as it progresses. If you look at the source files while this script 
+  is running you will see the changes being made to trial values.
+  `);
+  process.exit(0);
+}
+
+// Check if the path to the repository directory is provided
+if (process.argv.length < 3) {
+  console.error('Error: Please provide the path to the repository directory. Check --help for instructions.');
+  process.exit(1);
+}
+
+// Set the path to the repository directory
+const repoPath = process.argv[2];
+
+/**
+ * Check if the proposed change (already saved to the filesystem) passes the type checker.
+ * @returns {boolean}
+ */
+function isBuildSuccessful() {
+  try {
+    // Specify the path to the TypeScript compiler you want to use
+    const tscPath = '../chipper/node_modules/typescript/bin/tsc';
+
+    // Run the specified TypeScript compiler in the current directory
+    execSync(`node ${tscPath}`, {
+      // set the working directory
+      cwd: repoPath
+    });
+
+    // If tsc exits without error, the build is successful
+    return true;
+  } catch (error) {
+    // If tsc exits with an error (non-zero exit code), the build failed
+    return false;
+  }
+}
+
+// Run the script
+restrictAccessModifiers(repoPath).then(() => console.log('Finished processing files.'));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJQcm9qZWN0IiwiZXhlY1N5bmMiLCJyZXN0cmljdEFjY2Vzc01vZGlmaWVycyIsInJlcG9QYXRoIiwicHJvamVjdCIsInRzQ29uZmlnRmlsZVBhdGgiLCJzb3VyY2VGaWxlcyIsImdldFNvdXJjZUZpbGVzIiwic291cmNlRmlsZSIsImNsYXNzZXMiLCJnZXRDbGFzc2VzIiwiY2xhc3NEZWNsYXJhdGlvbiIsImNvbnNvbGUiLCJsb2ciLCJnZXROYW1lIiwibWVtYmVycyIsImdldEluc3RhbmNlUHJvcGVydGllcyIsImdldEluc3RhbmNlTWV0aG9kcyIsImdldFN0YXRpY1Byb3BlcnRpZXMiLCJnZXRTdGF0aWNNZXRob2RzIiwibWVtYmVyIiwiZ2V0U2NvcGUiLCJzZXRTY29wZSIsInNhdmUiLCJpc0J1aWxkU3VjY2Vzc2Z1bCIsInByb2Nlc3MiLCJhcmd2IiwiaW5jbHVkZXMiLCJleGl0IiwibGVuZ3RoIiwiZXJyb3IiLCJ0c2NQYXRoIiwiY3dkIiwidGhlbiJdLCJzb3VyY2VzIjpbInJlc3RyaWN0QWNjZXNzTW9kaWZpZXJzLm1qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAyNCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbyBCb3VsZGVyXHJcblxyXG4vKipcclxuICogVGhpcyBzY3JpcHQgYXV0b21hdGVzIHRoZSBwcm9jZXNzIG9mIHRpZ2h0ZW5pbmcgYWNjZXNzIG1vZGlmaWVycyB3aXRoaW4gVHlwZVNjcmlwdCBmaWxlcyBpbiBhIHNwZWNpZmllZCBwcm9qZWN0LlxyXG4gKiBJdCBpdGVyYXRlcyBvdmVyIFR5cGVTY3JpcHQgZmlsZXMgaW4gdGhlICdqcy8nIGRpcmVjdG9yeSwgYXR0ZW1wdGluZyB0byBjaGFuZ2UgcHVibGljIGFuZCBwcm90ZWN0ZWQgY2xhc3MgbWVtYmVyc1xyXG4gKiB0byBwcml2YXRlLiBJdCB0aGVuIHJ1bnMgdGhlIFR5cGVTY3JpcHQgdHlwZSBjaGVja2VyIHRvIHZhbGlkYXRlIHRoZXNlIGNoYW5nZXMuIElmIHRoZSB0eXBlIGNoZWNrZXIgZmFpbHMsIGl0XHJcbiAqIGVzY2FsYXRlcyB0aGUgYWNjZXNzIGxldmVsIGZyb20gcHJpdmF0ZSB0byBwcm90ZWN0ZWQsIGFuZCBpZiBuZWNlc3NhcnksIGJhY2sgdG8gcHVibGljLCB0ZXN0aW5nIHRoZSBidWlsZCBhdCBlYWNoXHJcbiAqIHN0YWdlLiBUaGlzIGhlbHBzIGluIGVuZm9yY2luZyBzdHJpY3RlciBlbmNhcHN1bGF0aW9uIGluIHRoZSBjb2RlYmFzZS5cclxuICpcclxuICogVXNhZ2U6XHJcbiAqIGNkIGNoaXBwZXIvXHJcbiAqIG5vZGUganMvc2NyaXB0cy9yZXN0cmljdEFjY2Vzc01vZGlmaWVycy5qcyBbcmVsYXRpdmUtcGF0aC10by1yZXBvLWRpcmVjdG9yeV1cclxuICpcclxuICogUGFyYW1ldGVyczpcclxuICogW3JlbGF0aXZlLXBhdGgtdG8tcmVwby1kaXJlY3RvcnldIC0gVGhlIHBhdGggdG8gdGhlIHJlcG9zaXRvcnkgd2hlcmUgVHlwZVNjcmlwdCBmaWxlcyBhcmUgbG9jYXRlZC4gVGhpcyBzY3JpcHQgYXNzdW1lc1xyXG4gKiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhICd0c2NvbmZpZy5qc29uJyBmaWxlIGlzIHByZXNlbnQgYXQgdGhlIHJvb3Qgb2YgdGhlIHNwZWNpZmllZCBkaXJlY3RvcnkuXHJcbiAqXHJcbiAqIE9wdGlvbnM6XHJcbiAqIC0taGVscCAgICAgICAgICAgICAgICAgICAtIERpc3BsYXlzIHRoaXMgaGVscCBtZXNzYWdlIGFuZCBleGl0cy5cclxuICpcclxuICogRXhhbXBsZTpcclxuICogbm9kZSBqcy9zY3JpcHRzL3Jlc3RyaWN0QWNjZXNzTW9kaWZpZXJzLmpzIC4uL215LXRzLXByb2plY3RcclxuICpcclxuICogTm90ZTpcclxuICogLSBFbnN1cmUgdGhhdCAndHNjb25maWcuanNvbicgaXMgY29ycmVjdGx5IHNldCB1cCBpbiB5b3VyIHByb2plY3Qgcm9vdC5cclxuICogLSBUaGUgc2NyaXB0IGN1cnJlbnRseSB0YXJnZXRzIGZpbGVzIHdpdGhpbiB0aGUgJ2pzLycgZGlyZWN0b3J5IGJ5IGRlZmF1bHQuIEFkanVzdCB0aGUgZ2xvYiBwYXR0ZXJuIGluIHRoZVxyXG4gKiAgIGdldFNvdXJjZUZpbGVzIG1ldGhvZCBjYWxsIGlmIHlvdXIgcHJvamVjdCBzdHJ1Y3R1cmUgZGlmZmVycy5cclxuICogLSBUaGlzIHNjcmlwdCByZXF1aXJlcyBOb2RlLmpzIGFuZCB0aGUgJ3RzLW1vcnBoJyBhbmQgJ2NoaWxkX3Byb2Nlc3MnIHBhY2thZ2VzLlxyXG4gKiAtIFRoZSBzY3JpcHQgbWFrZXMgY2hhbmdlcyB0byB0aGUgcmVwbyBhcyBpdCBwcm9ncmVzc2VzLiBJZiB5b3UgbG9vayBhdCB0aGUgc291cmNlIGZpbGVzIHdoaWxlIHRoaXMgc2NyaXB0IGlzIHJ1bm5pbmdcclxuICogICB5b3Ugd2lsbCBzZWUgdGhlIGNoYW5nZXMgYmVpbmcgbWFkZSB0byB0cmlhbCB2YWx1ZXMuXHJcbiAqXHJcbiAqIEBhdXRob3IgU2FtIFJlaWQgKFBoRVQgSW50ZXJhY3RpdmUgU2ltdWxhdGlvbnMpXHJcbiAqIEBhdXRob3IgTWF0dCBCbGFja21hbiAoUGhFVCBJbnRlcmFjdGl2ZSBTaW11bGF0aW9ucylcclxuICovXHJcblxyXG5pbXBvcnQgeyBQcm9qZWN0IH0gZnJvbSAndHMtbW9ycGgnO1xyXG5pbXBvcnQgeyBleGVjU3luYyB9IGZyb20gJ2NoaWxkX3Byb2Nlc3MnO1xyXG5cclxuLy8gRnVuY3Rpb24gdG8gdGlnaHRlbiBhY2Nlc3NpYmlsaXR5IGFubm90YXRpb25zXHJcbmFzeW5jIGZ1bmN0aW9uIHJlc3RyaWN0QWNjZXNzTW9kaWZpZXJzKCByZXBvUGF0aCApIHtcclxuXHJcbiAgLy8gSW5pdGlhbGl6ZSBhIG5ldyB0cy1tb3JwaCBQcm9qZWN0XHJcbiAgY29uc3QgcHJvamVjdCA9IG5ldyBQcm9qZWN0KCB7XHJcblxyXG4gICAgLy8gQXNzdW1pbmcgdHNjb25maWcuanNvbiBpcyBpbiB0aGUgcm9vdCwgYWRqdXN0IGlmIG5lY2Vzc2FyeVxyXG4gICAgdHNDb25maWdGaWxlUGF0aDogYCR7cmVwb1BhdGh9L3RzY29uZmlnLmpzb25gXHJcbiAgfSApO1xyXG5cclxuICBjb25zdCBzb3VyY2VGaWxlcyA9IHByb2plY3QuZ2V0U291cmNlRmlsZXMoIGAke3JlcG9QYXRofS9qcy8qKi8qLnRzYCApOyAvLyBBZGp1c3QgdGhlIGdsb2IgcGF0dGVybiBhcyBuZWNlc3NhcnlcclxuXHJcbiAgZm9yICggY29uc3Qgc291cmNlRmlsZSBvZiBzb3VyY2VGaWxlcyApIHtcclxuICAgIGNvbnN0IGNsYXNzZXMgPSBzb3VyY2VGaWxlLmdldENsYXNzZXMoKTtcclxuXHJcbiAgICBmb3IgKCBjb25zdCBjbGFzc0RlY2xhcmF0aW9uIG9mIGNsYXNzZXMgKSB7XHJcblxyXG4gICAgICBjb25zb2xlLmxvZyggYCMgUHJvY2Vzc2luZyBjbGFzczogJHtjbGFzc0RlY2xhcmF0aW9uLmdldE5hbWUoKX1gICk7XHJcblxyXG4gICAgICBjb25zdCBtZW1iZXJzID0gW1xyXG4gICAgICAgIC4uLmNsYXNzRGVjbGFyYXRpb24uZ2V0SW5zdGFuY2VQcm9wZXJ0aWVzKCksXHJcbiAgICAgICAgLi4uY2xhc3NEZWNsYXJhdGlvbi5nZXRJbnN0YW5jZU1ldGhvZHMoKSxcclxuICAgICAgICAuLi5jbGFzc0RlY2xhcmF0aW9uLmdldFN0YXRpY1Byb3BlcnRpZXMoKSxcclxuICAgICAgICAuLi5jbGFzc0RlY2xhcmF0aW9uLmdldFN0YXRpY01ldGhvZHMoKVxyXG4gICAgICBdO1xyXG5cclxuICAgICAgZm9yICggY29uc3QgbWVtYmVyIG9mIG1lbWJlcnMgKSB7XHJcblxyXG4gICAgICAgIGNvbnNvbGUubG9nKCBtZW1iZXIuZ2V0U2NvcGUoKSArICcgJyArIG1lbWJlci5nZXROYW1lKCkgKTtcclxuXHJcbiAgICAgICAgaWYgKCBtZW1iZXIuZ2V0U2NvcGUoKSA9PT0gJ3B1YmxpYycgfHwgbWVtYmVyLmdldFNjb3BlKCkgPT09ICdwcm90ZWN0ZWQnICkge1xyXG5cclxuICAgICAgICAgIC8vIFRyeSBzZXR0aW5nIHRvIHByaXZhdGVcclxuICAgICAgICAgIG1lbWJlci5zZXRTY29wZSggJ3ByaXZhdGUnICk7XHJcbiAgICAgICAgICBhd2FpdCBzb3VyY2VGaWxlLnNhdmUoKTtcclxuXHJcbiAgICAgICAgICBpZiAoICFpc0J1aWxkU3VjY2Vzc2Z1bCgpICkge1xyXG5cclxuICAgICAgICAgICAgLy8gSWYgbm90IHN1Y2Nlc3NmdWwsIHRyeSBwcm90ZWN0ZWRcclxuICAgICAgICAgICAgbWVtYmVyLnNldFNjb3BlKCAncHJvdGVjdGVkJyApO1xyXG4gICAgICAgICAgICBhd2FpdCBzb3VyY2VGaWxlLnNhdmUoKTtcclxuXHJcbiAgICAgICAgICAgIGlmICggIWlzQnVpbGRTdWNjZXNzZnVsKCkgKSB7XHJcblxyXG4gICAgICAgICAgICAgIC8vIElmIHN0aWxsIG5vdCBzdWNjZXNzZnVsLCByZXZlcnQgdG8gcHVibGljXHJcbiAgICAgICAgICAgICAgbWVtYmVyLnNldFNjb3BlKCAncHVibGljJyApO1xyXG4gICAgICAgICAgICAgIGF3YWl0IHNvdXJjZUZpbGUuc2F2ZSgpO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgICAgIGNvbnNvbGUubG9nKCBgICAgIFN1Y2Nlc3NmdWxseSBjaGFuZ2VkICR7bWVtYmVyLmdldE5hbWUoKX0gdG8gcHJvdGVjdGVkLmAgKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgfVxyXG4gICAgICAgICAgZWxzZSB7XHJcbiAgICAgICAgICAgIGNvbnNvbGUubG9nKCBgICAgIFN1Y2Nlc3NmdWxseSBjaGFuZ2VkICR7bWVtYmVyLmdldE5hbWUoKX0gdG8gcHJpdmF0ZS5gICk7XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4vLyBDaGVjayBpZiB0aGVyZSBpcyBhIC0taGVscCBjb21tYW5kIGxpbmUgYXJndW1lbnRcclxuaWYgKCBwcm9jZXNzLmFyZ3YuaW5jbHVkZXMoICctLWhlbHAnICkgKSB7XHJcbiAgY29uc29sZS5sb2coIGBcclxuXFx4MWJbMW1Vc2FnZTpcXHgxYlswbVxyXG4gIFxceDFiWzM2bWNkIGNoaXBwZXIvXFx4MWJbMG1cclxuICBcXHgxYlszNm1ub2RlIGpzL3NjcmlwdHMvcmVzdHJpY3RBY2Nlc3NNb2RpZmllcnMuanMgW3JlbGF0aXZlLXBhdGgtdG8tcmVwby1kaXJlY3RvcnldXFx4MWJbMG1cclxuXHJcblxceDFiWzFtUGFyYW1ldGVyczpcXHgxYlswbVxyXG4gIFxceDFiWzMzbVtyZWxhdGl2ZS1wYXRoLXRvLXJlcG8tZGlyZWN0b3J5XVxceDFiWzBtIC0gVGhlIHBhdGggdG8gdGhlIHJlcG9zaXRvcnkgd2hlcmUgVHlwZVNjcmlwdCBmaWxlcyBhcmUgbG9jYXRlZC4gQXNzdW1lc1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBhICd0c2NvbmZpZy5qc29uJyBmaWxlIGlzIHByZXNlbnQgYXQgdGhlIHJvb3Qgb2YgdGhlIHNwZWNpZmllZCBkaXJlY3RvcnkuXHJcblxyXG5cXHgxYlsxbU9wdGlvbnM6XFx4MWJbMG1cclxuICBcXHgxYlszMm0tLWhlbHBcXHgxYlswbSAgICAgICAgICAgICAgICAgIC0gRGlzcGxheXMgdGhpcyBoZWxwIG1lc3NhZ2UgYW5kIGV4aXRzLlxyXG5cclxuXFx4MWJbMW1FeGFtcGxlOlxceDFiWzBtXHJcbiAgXFx4MWJbMzZtbm9kZSBqcy9zY3JpcHRzL3Jlc3RyaWN0QWNjZXNzTW9kaWZpZXJzLmpzIC4uL215LXRzLXByb2plY3RcXHgxYlswbVxyXG5cclxuXFx4MWJbMW1Ob3RlOlxceDFiWzBtXHJcbi0gRW5zdXJlIHRoYXQgJ3RzY29uZmlnLmpzb24nIGlzIGNvcnJlY3RseSBzZXQgdXAgaW4geW91ciBwcm9qZWN0IHJvb3QuXHJcbi0gVGhlIHNjcmlwdCBjdXJyZW50bHkgdGFyZ2V0cyBmaWxlcyB3aXRoaW4gdGhlICdqcy8nIGRpcmVjdG9yeSBieSBkZWZhdWx0LiBBZGp1c3QgdGhlIGdsb2IgcGF0dGVybiBpbiB0aGVcclxuICBnZXRTb3VyY2VGaWxlcyBtZXRob2QgY2FsbCBpZiB5b3VyIHByb2plY3Qgc3RydWN0dXJlIGRpZmZlcnMuXHJcbi0gVGhpcyBzY3JpcHQgcmVxdWlyZXMgTm9kZS5qcyBhbmQgdGhlICd0cy1tb3JwaCcgYW5kICdjaGlsZF9wcm9jZXNzJyBwYWNrYWdlcy5cclxuLSBUaGUgc2NyaXB0IG1ha2VzIGNoYW5nZXMgdG8gdGhlIHJlcG8gYXMgaXQgcHJvZ3Jlc3Nlcy4gSWYgeW91IGxvb2sgYXQgdGhlIHNvdXJjZSBmaWxlcyB3aGlsZSB0aGlzIHNjcmlwdCBcclxuICBpcyBydW5uaW5nIHlvdSB3aWxsIHNlZSB0aGUgY2hhbmdlcyBiZWluZyBtYWRlIHRvIHRyaWFsIHZhbHVlcy5cclxuICBgICk7XHJcbiAgcHJvY2Vzcy5leGl0KCAwICk7XHJcbn1cclxuXHJcbi8vIENoZWNrIGlmIHRoZSBwYXRoIHRvIHRoZSByZXBvc2l0b3J5IGRpcmVjdG9yeSBpcyBwcm92aWRlZFxyXG5pZiAoIHByb2Nlc3MuYXJndi5sZW5ndGggPCAzICkge1xyXG4gIGNvbnNvbGUuZXJyb3IoICdFcnJvcjogUGxlYXNlIHByb3ZpZGUgdGhlIHBhdGggdG8gdGhlIHJlcG9zaXRvcnkgZGlyZWN0b3J5LiBDaGVjayAtLWhlbHAgZm9yIGluc3RydWN0aW9ucy4nICk7XHJcbiAgcHJvY2Vzcy5leGl0KCAxICk7XHJcbn1cclxuXHJcbi8vIFNldCB0aGUgcGF0aCB0byB0aGUgcmVwb3NpdG9yeSBkaXJlY3RvcnlcclxuY29uc3QgcmVwb1BhdGggPSBwcm9jZXNzLmFyZ3ZbIDIgXTtcclxuXHJcbi8qKlxyXG4gKiBDaGVjayBpZiB0aGUgcHJvcG9zZWQgY2hhbmdlIChhbHJlYWR5IHNhdmVkIHRvIHRoZSBmaWxlc3lzdGVtKSBwYXNzZXMgdGhlIHR5cGUgY2hlY2tlci5cclxuICogQHJldHVybnMge2Jvb2xlYW59XHJcbiAqL1xyXG5mdW5jdGlvbiBpc0J1aWxkU3VjY2Vzc2Z1bCgpIHtcclxuICB0cnkge1xyXG5cclxuICAgIC8vIFNwZWNpZnkgdGhlIHBhdGggdG8gdGhlIFR5cGVTY3JpcHQgY29tcGlsZXIgeW91IHdhbnQgdG8gdXNlXHJcbiAgICBjb25zdCB0c2NQYXRoID0gJy4uL2NoaXBwZXIvbm9kZV9tb2R1bGVzL3R5cGVzY3JpcHQvYmluL3RzYyc7XHJcblxyXG4gICAgLy8gUnVuIHRoZSBzcGVjaWZpZWQgVHlwZVNjcmlwdCBjb21waWxlciBpbiB0aGUgY3VycmVudCBkaXJlY3RvcnlcclxuICAgIGV4ZWNTeW5jKCBgbm9kZSAke3RzY1BhdGh9YCwge1xyXG5cclxuICAgICAgLy8gc2V0IHRoZSB3b3JraW5nIGRpcmVjdG9yeVxyXG4gICAgICBjd2Q6IHJlcG9QYXRoXHJcbiAgICB9ICk7XHJcblxyXG4gICAgLy8gSWYgdHNjIGV4aXRzIHdpdGhvdXQgZXJyb3IsIHRoZSBidWlsZCBpcyBzdWNjZXNzZnVsXHJcbiAgICByZXR1cm4gdHJ1ZTtcclxuICB9XHJcbiAgY2F0Y2goIGVycm9yICkge1xyXG5cclxuICAgIC8vIElmIHRzYyBleGl0cyB3aXRoIGFuIGVycm9yIChub24temVybyBleGl0IGNvZGUpLCB0aGUgYnVpbGQgZmFpbGVkXHJcbiAgICByZXR1cm4gZmFsc2U7XHJcbiAgfVxyXG59XHJcblxyXG4vLyBSdW4gdGhlIHNjcmlwdFxyXG5yZXN0cmljdEFjY2Vzc01vZGlmaWVycyggcmVwb1BhdGggKS50aGVuKCAoKSA9PiBjb25zb2xlLmxvZyggJ0ZpbmlzaGVkIHByb2Nlc3NpbmcgZmlsZXMuJyApICk7Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtB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

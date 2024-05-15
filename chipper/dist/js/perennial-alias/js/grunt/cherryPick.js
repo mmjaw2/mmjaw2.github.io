@@ -1,0 +1,37 @@
+// Copyright 2017, University of Colorado Boulder
+
+/**
+ * For `grunt cherry-pick`, see Gruntfile for details
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+const gitCherryPick = require('../common/gitCherryPick');
+const grunt = require('grunt');
+
+/**
+ * For `grunt cherry-pick`, see Gruntfile for details
+ * @public
+ *
+ * @param {string} repo - The repository name
+ * @param {Array.<string>} shas
+ * @returns {Promise}
+ */
+module.exports = async function (repo, shas) {
+  for (let i = 0; i < shas.length; i++) {
+    const sha = shas[i];
+    let success;
+    try {
+      success = await gitCherryPick(repo, sha);
+    } catch (e) {
+      grunt.log.error(`abort failed :${JSON.stringify(e)}`);
+      return;
+    }
+    if (success) {
+      grunt.log.ok(`Cherry-pick with ${sha} was successful`);
+      return;
+    }
+  }
+  grunt.log.error('No SHAs were able to be cherry-picked without conflicts');
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJnaXRDaGVycnlQaWNrIiwicmVxdWlyZSIsImdydW50IiwibW9kdWxlIiwiZXhwb3J0cyIsInJlcG8iLCJzaGFzIiwiaSIsImxlbmd0aCIsInNoYSIsInN1Y2Nlc3MiLCJlIiwibG9nIiwiZXJyb3IiLCJKU09OIiwic3RyaW5naWZ5Iiwib2siXSwic291cmNlcyI6WyJjaGVycnlQaWNrLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE3LCBVbml2ZXJzaXR5IG9mIENvbG9yYWRvIEJvdWxkZXJcclxuXHJcbi8qKlxyXG4gKiBGb3IgYGdydW50IGNoZXJyeS1waWNrYCwgc2VlIEdydW50ZmlsZSBmb3IgZGV0YWlsc1xyXG4gKlxyXG4gKiBAYXV0aG9yIEpvbmF0aGFuIE9sc29uIDxqb25hdGhhbi5vbHNvbkBjb2xvcmFkby5lZHU+XHJcbiAqL1xyXG5cclxuY29uc3QgZ2l0Q2hlcnJ5UGljayA9IHJlcXVpcmUoICcuLi9jb21tb24vZ2l0Q2hlcnJ5UGljaycgKTtcclxuY29uc3QgZ3J1bnQgPSByZXF1aXJlKCAnZ3J1bnQnICk7XHJcblxyXG4vKipcclxuICogRm9yIGBncnVudCBjaGVycnktcGlja2AsIHNlZSBHcnVudGZpbGUgZm9yIGRldGFpbHNcclxuICogQHB1YmxpY1xyXG4gKlxyXG4gKiBAcGFyYW0ge3N0cmluZ30gcmVwbyAtIFRoZSByZXBvc2l0b3J5IG5hbWVcclxuICogQHBhcmFtIHtBcnJheS48c3RyaW5nPn0gc2hhc1xyXG4gKiBAcmV0dXJucyB7UHJvbWlzZX1cclxuICovXHJcbm1vZHVsZS5leHBvcnRzID0gYXN5bmMgZnVuY3Rpb24oIHJlcG8sIHNoYXMgKSB7XHJcbiAgZm9yICggbGV0IGkgPSAwOyBpIDwgc2hhcy5sZW5ndGg7IGkrKyApIHtcclxuICAgIGNvbnN0IHNoYSA9IHNoYXNbIGkgXTtcclxuXHJcbiAgICBsZXQgc3VjY2VzcztcclxuICAgIHRyeSB7XHJcbiAgICAgIHN1Y2Nlc3MgPSBhd2FpdCBnaXRDaGVycnlQaWNrKCByZXBvLCBzaGEgKTtcclxuICAgIH1cclxuICAgIGNhdGNoKCBlICkge1xyXG4gICAgICBncnVudC5sb2cuZXJyb3IoIGBhYm9ydCBmYWlsZWQgOiR7SlNPTi5zdHJpbmdpZnkoIGUgKX1gICk7XHJcbiAgICAgIHJldHVybjtcclxuICAgIH1cclxuXHJcbiAgICBpZiAoIHN1Y2Nlc3MgKSB7XHJcbiAgICAgIGdydW50LmxvZy5vayggYENoZXJyeS1waWNrIHdpdGggJHtzaGF9IHdhcyBzdWNjZXNzZnVsYCApO1xyXG4gICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICBncnVudC5sb2cuZXJyb3IoICdObyBTSEFzIHdlcmUgYWJsZSB0byBiZSBjaGVycnktcGlja2VkIHdpdGhvdXQgY29uZmxpY3RzJyApO1xyXG59OyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxNQUFNQSxhQUFhLEdBQUdDLE9BQU8sQ0FBRSx5QkFBMEIsQ0FBQztBQUMxRCxNQUFNQyxLQUFLLEdBQUdELE9BQU8sQ0FBRSxPQUFRLENBQUM7O0FBRWhDO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQUUsTUFBTSxDQUFDQyxPQUFPLEdBQUcsZ0JBQWdCQyxJQUFJLEVBQUVDLElBQUksRUFBRztFQUM1QyxLQUFNLElBQUlDLENBQUMsR0FBRyxDQUFDLEVBQUVBLENBQUMsR0FBR0QsSUFBSSxDQUFDRSxNQUFNLEVBQUVELENBQUMsRUFBRSxFQUFHO0lBQ3RDLE1BQU1FLEdBQUcsR0FBR0gsSUFBSSxDQUFFQyxDQUFDLENBQUU7SUFFckIsSUFBSUcsT0FBTztJQUNYLElBQUk7TUFDRkEsT0FBTyxHQUFHLE1BQU1WLGFBQWEsQ0FBRUssSUFBSSxFQUFFSSxHQUFJLENBQUM7SUFDNUMsQ0FBQyxDQUNELE9BQU9FLENBQUMsRUFBRztNQUNUVCxLQUFLLENBQUNVLEdBQUcsQ0FBQ0MsS0FBSyxDQUFHLGlCQUFnQkMsSUFBSSxDQUFDQyxTQUFTLENBQUVKLENBQUUsQ0FBRSxFQUFFLENBQUM7TUFDekQ7SUFDRjtJQUVBLElBQUtELE9BQU8sRUFBRztNQUNiUixLQUFLLENBQUNVLEdBQUcsQ0FBQ0ksRUFBRSxDQUFHLG9CQUFtQlAsR0FBSSxpQkFBaUIsQ0FBQztNQUN4RDtJQUNGO0VBQ0Y7RUFFQVAsS0FBSyxDQUFDVSxHQUFHLENBQUNDLEtBQUssQ0FBRSx5REFBMEQsQ0FBQztBQUM5RSxDQUFDIiwiaWdub3JlTGlzdCI6W119

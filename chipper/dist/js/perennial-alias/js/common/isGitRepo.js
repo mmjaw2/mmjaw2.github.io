@@ -1,0 +1,18 @@
+// Copyright 2023, University of Colorado Boulder
+
+/**
+ * Checks to see if the git repo is initialized.
+ *
+ * @author Jesse Greenberg (PhET Interactive Simulations)
+ */
+const execute = require('./execute');
+module.exports = async function (repo) {
+  try {
+    // an arbitrary command that will fail if the repo is not initialized
+    await execute('git', ['status'], `../${repo}`);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJleGVjdXRlIiwicmVxdWlyZSIsIm1vZHVsZSIsImV4cG9ydHMiLCJyZXBvIiwiZXJyb3IiXSwic291cmNlcyI6WyJpc0dpdFJlcG8uanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIENoZWNrcyB0byBzZWUgaWYgdGhlIGdpdCByZXBvIGlzIGluaXRpYWxpemVkLlxyXG4gKlxyXG4gKiBAYXV0aG9yIEplc3NlIEdyZWVuYmVyZyAoUGhFVCBJbnRlcmFjdGl2ZSBTaW11bGF0aW9ucylcclxuICovXHJcbmNvbnN0IGV4ZWN1dGUgPSByZXF1aXJlKCAnLi9leGVjdXRlJyApO1xyXG5cclxubW9kdWxlLmV4cG9ydHMgPSBhc3luYyBmdW5jdGlvbiggcmVwbyApIHtcclxuICB0cnkge1xyXG5cclxuICAgIC8vIGFuIGFyYml0cmFyeSBjb21tYW5kIHRoYXQgd2lsbCBmYWlsIGlmIHRoZSByZXBvIGlzIG5vdCBpbml0aWFsaXplZFxyXG4gICAgYXdhaXQgZXhlY3V0ZSggJ2dpdCcsIFsgJ3N0YXR1cycgXSwgYC4uLyR7cmVwb31gICk7XHJcbiAgICByZXR1cm4gdHJ1ZTtcclxuICB9XHJcbiAgY2F0Y2goIGVycm9yICkge1xyXG4gICAgcmV0dXJuIGZhbHNlO1xyXG4gIH1cclxufTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxNQUFNQSxPQUFPLEdBQUdDLE9BQU8sQ0FBRSxXQUFZLENBQUM7QUFFdENDLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHLGdCQUFnQkMsSUFBSSxFQUFHO0VBQ3RDLElBQUk7SUFFRjtJQUNBLE1BQU1KLE9BQU8sQ0FBRSxLQUFLLEVBQUUsQ0FBRSxRQUFRLENBQUUsRUFBRyxNQUFLSSxJQUFLLEVBQUUsQ0FBQztJQUNsRCxPQUFPLElBQUk7RUFDYixDQUFDLENBQ0QsT0FBT0MsS0FBSyxFQUFHO0lBQ2IsT0FBTyxLQUFLO0VBQ2Q7QUFDRixDQUFDIiwiaWdub3JlTGlzdCI6W119

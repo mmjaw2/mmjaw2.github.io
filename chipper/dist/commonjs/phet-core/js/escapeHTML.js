@@ -1,0 +1,26 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2013-2024, University of Colorado Boulder
+
+/**
+ * Escaping of HTML content that will be placed in the body, inside an element as a node.
+ *
+ * This is NOT for escaping something in other HTML contexts, for example as an attribute value
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+function escapeHTML(str) {
+  // see https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+  // HTML Entity Encoding
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/\//g, '&#x2F;').replace(/ /g, '&nbsp;');
+}
+_phetCore["default"].register('escapeHTML', escapeHTML);
+var _default = exports["default"] = escapeHTML;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJlc2NhcGVIVE1MIiwic3RyIiwicmVwbGFjZSIsInBoZXRDb3JlIiwicmVnaXN0ZXIiLCJfZGVmYXVsdCIsImV4cG9ydHMiXSwic291cmNlcyI6WyJlc2NhcGVIVE1MLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDEzLTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIEVzY2FwaW5nIG9mIEhUTUwgY29udGVudCB0aGF0IHdpbGwgYmUgcGxhY2VkIGluIHRoZSBib2R5LCBpbnNpZGUgYW4gZWxlbWVudCBhcyBhIG5vZGUuXHJcbiAqXHJcbiAqIFRoaXMgaXMgTk9UIGZvciBlc2NhcGluZyBzb21ldGhpbmcgaW4gb3RoZXIgSFRNTCBjb250ZXh0cywgZm9yIGV4YW1wbGUgYXMgYW4gYXR0cmlidXRlIHZhbHVlXHJcbiAqXHJcbiAqIEBhdXRob3IgSm9uYXRoYW4gT2xzb24gPGpvbmF0aGFuLm9sc29uQGNvbG9yYWRvLmVkdT5cclxuICovXHJcblxyXG5pbXBvcnQgcGhldENvcmUgZnJvbSAnLi9waGV0Q29yZS5qcyc7XHJcblxyXG5mdW5jdGlvbiBlc2NhcGVIVE1MKCBzdHI6IHN0cmluZyApOiBzdHJpbmcge1xyXG4gIC8vIHNlZSBodHRwczovL3d3dy5vd2FzcC5vcmcvaW5kZXgucGhwL1hTU18oQ3Jvc3NfU2l0ZV9TY3JpcHRpbmcpX1ByZXZlbnRpb25fQ2hlYXRfU2hlZXRcclxuICAvLyBIVE1MIEVudGl0eSBFbmNvZGluZ1xyXG4gIHJldHVybiBzdHJcclxuICAgIC5yZXBsYWNlKCAvJi9nLCAnJmFtcDsnIClcclxuICAgIC5yZXBsYWNlKCAvPC9nLCAnJmx0OycgKVxyXG4gICAgLnJlcGxhY2UoIC8+L2csICcmZ3Q7JyApXHJcbiAgICAucmVwbGFjZSggL1wiL2csICcmcXVvdDsnIClcclxuICAgIC5yZXBsYWNlKCAvJy9nLCAnJiN4Mjc7JyApXHJcbiAgICAucmVwbGFjZSggL1xcLy9nLCAnJiN4MkY7JyApXHJcbiAgICAucmVwbGFjZSggLyAvZywgJyZuYnNwOycgKTtcclxufVxyXG5cclxucGhldENvcmUucmVnaXN0ZXIoICdlc2NhcGVIVE1MJywgZXNjYXBlSFRNTCApO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgZXNjYXBlSFRNTDsiXSwibWFwcGluZ3MiOiI7Ozs7OztBQVVBLElBQUFBLFNBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTtBQUFxQyxTQUFBRCx1QkFBQUUsR0FBQSxXQUFBQSxHQUFBLElBQUFBLEdBQUEsQ0FBQUMsVUFBQSxHQUFBRCxHQUFBLGdCQUFBQSxHQUFBO0FBVnJDOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUlBLFNBQVNFLFVBQVVBLENBQUVDLEdBQVcsRUFBVztFQUN6QztFQUNBO0VBQ0EsT0FBT0EsR0FBRyxDQUNQQyxPQUFPLENBQUUsSUFBSSxFQUFFLE9BQVEsQ0FBQyxDQUN4QkEsT0FBTyxDQUFFLElBQUksRUFBRSxNQUFPLENBQUMsQ0FDdkJBLE9BQU8sQ0FBRSxJQUFJLEVBQUUsTUFBTyxDQUFDLENBQ3ZCQSxPQUFPLENBQUUsSUFBSSxFQUFFLFFBQVMsQ0FBQyxDQUN6QkEsT0FBTyxDQUFFLElBQUksRUFBRSxRQUFTLENBQUMsQ0FDekJBLE9BQU8sQ0FBRSxLQUFLLEVBQUUsUUFBUyxDQUFDLENBQzFCQSxPQUFPLENBQUUsSUFBSSxFQUFFLFFBQVMsQ0FBQztBQUM5QjtBQUVBQyxvQkFBUSxDQUFDQyxRQUFRLENBQUUsWUFBWSxFQUFFSixVQUFXLENBQUM7QUFBQyxJQUFBSyxRQUFBLEdBQUFDLE9BQUEsY0FFL0JOLFVBQVUiLCJpZ25vcmVMaXN0IjpbXX0=

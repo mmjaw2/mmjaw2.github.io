@@ -1,0 +1,24 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2020-2023, University of Colorado Boulder
+
+/**
+ * Strips embedding marks out of a string. Embedding marks are added to support directional languages and PhET i18n in
+ * general.
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Michael Kauzmann (PhET Interactive Simulations)
+ */
+
+function stripEmbeddingMarks(string) {
+  return string.replace(/\u202a|\u202b|\u202c/g, '');
+}
+_phetCore["default"].register('stripEmbeddingMarks', stripEmbeddingMarks);
+var _default = exports["default"] = stripEmbeddingMarks;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJzdHJpcEVtYmVkZGluZ01hcmtzIiwic3RyaW5nIiwicmVwbGFjZSIsInBoZXRDb3JlIiwicmVnaXN0ZXIiLCJfZGVmYXVsdCIsImV4cG9ydHMiXSwic291cmNlcyI6WyJzdHJpcEVtYmVkZGluZ01hcmtzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDIwLTIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIFN0cmlwcyBlbWJlZGRpbmcgbWFya3Mgb3V0IG9mIGEgc3RyaW5nLiBFbWJlZGRpbmcgbWFya3MgYXJlIGFkZGVkIHRvIHN1cHBvcnQgZGlyZWN0aW9uYWwgbGFuZ3VhZ2VzIGFuZCBQaEVUIGkxOG4gaW5cclxuICogZ2VuZXJhbC5cclxuICpcclxuICogQGF1dGhvciBKb25hdGhhbiBPbHNvbiA8am9uYXRoYW4ub2xzb25AY29sb3JhZG8uZWR1PlxyXG4gKiBAYXV0aG9yIE1pY2hhZWwgS2F1em1hbm4gKFBoRVQgSW50ZXJhY3RpdmUgU2ltdWxhdGlvbnMpXHJcbiAqL1xyXG5cclxuaW1wb3J0IHBoZXRDb3JlIGZyb20gJy4vcGhldENvcmUuanMnO1xyXG5cclxuZnVuY3Rpb24gc3RyaXBFbWJlZGRpbmdNYXJrcyggc3RyaW5nOiBzdHJpbmcgKTogc3RyaW5nIHtcclxuICByZXR1cm4gc3RyaW5nLnJlcGxhY2UoIC9cXHUyMDJhfFxcdTIwMmJ8XFx1MjAyYy9nLCAnJyApO1xyXG59XHJcblxyXG5waGV0Q29yZS5yZWdpc3RlciggJ3N0cmlwRW1iZWRkaW5nTWFya3MnLCBzdHJpcEVtYmVkZGluZ01hcmtzICk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBzdHJpcEVtYmVkZGluZ01hcmtzOyJdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBVUEsSUFBQUEsU0FBQSxHQUFBQyxzQkFBQSxDQUFBQyxPQUFBO0FBQXFDLFNBQUFELHVCQUFBRSxHQUFBLFdBQUFBLEdBQUEsSUFBQUEsR0FBQSxDQUFBQyxVQUFBLEdBQUFELEdBQUEsZ0JBQUFBLEdBQUE7QUFWckM7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBSUEsU0FBU0UsbUJBQW1CQSxDQUFFQyxNQUFjLEVBQVc7RUFDckQsT0FBT0EsTUFBTSxDQUFDQyxPQUFPLENBQUUsdUJBQXVCLEVBQUUsRUFBRyxDQUFDO0FBQ3REO0FBRUFDLG9CQUFRLENBQUNDLFFBQVEsQ0FBRSxxQkFBcUIsRUFBRUosbUJBQW9CLENBQUM7QUFBQyxJQUFBSyxRQUFBLEdBQUFDLE9BQUEsY0FFakROLG1CQUFtQiIsImlnbm9yZUxpc3QiOltdfQ==

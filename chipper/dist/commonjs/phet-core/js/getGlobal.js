@@ -1,0 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _phetCore = _interopRequireDefault(require("./phetCore.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Copyright 2021-2023, University of Colorado Boulder
+
+/**
+ * Support gracefully getting a global object to itself. Returns null if the global doesn't exist.
+ * @author Sam Reid (PhET Interactive Simulations)
+ * @author Michael Kauzmann (PhET Interactive Simulations)
+ */
+
+/**
+ * If the path exists on the window global, return it, otherwise returns null
+ * @param path a path to global, such as 'phet.joist.sim'
+ */
+var getGlobal = function getGlobal(path) {
+  assert && assert(path.trim() === path, 'path must be trimmed');
+  var global = _.get(window, path);
+  return global !== undefined ? global : null;
+};
+_phetCore["default"].register('getGlobal', getGlobal);
+var _default = exports["default"] = getGlobal;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfcGhldENvcmUiLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIm9iaiIsIl9fZXNNb2R1bGUiLCJnZXRHbG9iYWwiLCJwYXRoIiwiYXNzZXJ0IiwidHJpbSIsImdsb2JhbCIsIl8iLCJnZXQiLCJ3aW5kb3ciLCJ1bmRlZmluZWQiLCJwaGV0Q29yZSIsInJlZ2lzdGVyIiwiX2RlZmF1bHQiLCJleHBvcnRzIl0sInNvdXJjZXMiOlsiZ2V0R2xvYmFsLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDIxLTIwMjMsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIFN1cHBvcnQgZ3JhY2VmdWxseSBnZXR0aW5nIGEgZ2xvYmFsIG9iamVjdCB0byBpdHNlbGYuIFJldHVybnMgbnVsbCBpZiB0aGUgZ2xvYmFsIGRvZXNuJ3QgZXhpc3QuXHJcbiAqIEBhdXRob3IgU2FtIFJlaWQgKFBoRVQgSW50ZXJhY3RpdmUgU2ltdWxhdGlvbnMpXHJcbiAqIEBhdXRob3IgTWljaGFlbCBLYXV6bWFubiAoUGhFVCBJbnRlcmFjdGl2ZSBTaW11bGF0aW9ucylcclxuICovXHJcblxyXG5pbXBvcnQgcGhldENvcmUgZnJvbSAnLi9waGV0Q29yZS5qcyc7XHJcbmltcG9ydCBJbnRlbnRpb25hbEFueSBmcm9tICcuL3R5cGVzL0ludGVudGlvbmFsQW55LmpzJztcclxuXHJcbi8qKlxyXG4gKiBJZiB0aGUgcGF0aCBleGlzdHMgb24gdGhlIHdpbmRvdyBnbG9iYWwsIHJldHVybiBpdCwgb3RoZXJ3aXNlIHJldHVybnMgbnVsbFxyXG4gKiBAcGFyYW0gcGF0aCBhIHBhdGggdG8gZ2xvYmFsLCBzdWNoIGFzICdwaGV0LmpvaXN0LnNpbSdcclxuICovXHJcbmNvbnN0IGdldEdsb2JhbCA9ICggcGF0aDogc3RyaW5nICk6IEludGVudGlvbmFsQW55IHwgbnVsbCA9PiB7XHJcbiAgYXNzZXJ0ICYmIGFzc2VydCggcGF0aC50cmltKCkgPT09IHBhdGgsICdwYXRoIG11c3QgYmUgdHJpbW1lZCcgKTtcclxuICBjb25zdCBnbG9iYWwgPSBfLmdldCggd2luZG93LCBwYXRoICk7XHJcbiAgcmV0dXJuIGdsb2JhbCAhPT0gdW5kZWZpbmVkID8gZ2xvYmFsIDogbnVsbDtcclxufTtcclxuXHJcbnBoZXRDb3JlLnJlZ2lzdGVyKCAnZ2V0R2xvYmFsJywgZ2V0R2xvYmFsICk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBnZXRHbG9iYWw7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFRQSxJQUFBQSxTQUFBLEdBQUFDLHNCQUFBLENBQUFDLE9BQUE7QUFBcUMsU0FBQUQsdUJBQUFFLEdBQUEsV0FBQUEsR0FBQSxJQUFBQSxHQUFBLENBQUFDLFVBQUEsR0FBQUQsR0FBQSxnQkFBQUEsR0FBQTtBQVJyQzs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUtBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsSUFBTUUsU0FBUyxHQUFHLFNBQVpBLFNBQVNBLENBQUtDLElBQVksRUFBNkI7RUFDM0RDLE1BQU0sSUFBSUEsTUFBTSxDQUFFRCxJQUFJLENBQUNFLElBQUksQ0FBQyxDQUFDLEtBQUtGLElBQUksRUFBRSxzQkFBdUIsQ0FBQztFQUNoRSxJQUFNRyxNQUFNLEdBQUdDLENBQUMsQ0FBQ0MsR0FBRyxDQUFFQyxNQUFNLEVBQUVOLElBQUssQ0FBQztFQUNwQyxPQUFPRyxNQUFNLEtBQUtJLFNBQVMsR0FBR0osTUFBTSxHQUFHLElBQUk7QUFDN0MsQ0FBQztBQUVESyxvQkFBUSxDQUFDQyxRQUFRLENBQUUsV0FBVyxFQUFFVixTQUFVLENBQUM7QUFBQyxJQUFBVyxRQUFBLEdBQUFDLE9BQUEsY0FFN0JaLFNBQVMiLCJpZ25vcmVMaXN0IjpbXX0=

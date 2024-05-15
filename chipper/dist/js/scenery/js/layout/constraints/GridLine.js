@@ -1,0 +1,52 @@
+// Copyright 2021-2024, University of Colorado Boulder
+
+/**
+ * A poolable internal representation of a row/column for grid handling in GridConstraint
+ *
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
+import Pool from '../../../../phet-core/js/Pool.js';
+import { LayoutLine, scenery } from '../../imports.js';
+export default class GridLine extends LayoutLine {
+  // (scenery-internal)
+
+  /**
+   * (scenery-internal)
+   */
+  constructor(index, cells, grow) {
+    super();
+    this.initialize(index, cells, grow);
+  }
+
+  /**
+   * (scenery-internal)
+   */
+  initialize(index, cells, grow) {
+    this.index = index;
+    this.cells = cells;
+    this.grow = grow;
+    this.initializeLayoutLine();
+    return this;
+  }
+
+  /**
+   * (scenery-internal)
+   */
+  freeToPool() {
+    GridLine.pool.freeToPool(this);
+  }
+  clean() {
+    this.cells.length = 0;
+    this.freeToPool();
+  }
+
+  /**
+   * (scenery-internal)
+   */
+  static pool = new Pool(GridLine, {
+    defaultArguments: [0, [], 0]
+  });
+}
+scenery.register('GridLine', GridLine);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJQb29sIiwiTGF5b3V0TGluZSIsInNjZW5lcnkiLCJHcmlkTGluZSIsImNvbnN0cnVjdG9yIiwiaW5kZXgiLCJjZWxscyIsImdyb3ciLCJpbml0aWFsaXplIiwiaW5pdGlhbGl6ZUxheW91dExpbmUiLCJmcmVlVG9Qb29sIiwicG9vbCIsImNsZWFuIiwibGVuZ3RoIiwiZGVmYXVsdEFyZ3VtZW50cyIsInJlZ2lzdGVyIl0sInNvdXJjZXMiOlsiR3JpZExpbmUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29weXJpZ2h0IDIwMjEtMjAyNCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbyBCb3VsZGVyXHJcblxyXG4vKipcclxuICogQSBwb29sYWJsZSBpbnRlcm5hbCByZXByZXNlbnRhdGlvbiBvZiBhIHJvdy9jb2x1bW4gZm9yIGdyaWQgaGFuZGxpbmcgaW4gR3JpZENvbnN0cmFpbnRcclxuICpcclxuICogQGF1dGhvciBKb25hdGhhbiBPbHNvbiA8am9uYXRoYW4ub2xzb25AY29sb3JhZG8uZWR1PlxyXG4gKi9cclxuXHJcbmltcG9ydCBQb29sIGZyb20gJy4uLy4uLy4uLy4uL3BoZXQtY29yZS9qcy9Qb29sLmpzJztcclxuaW1wb3J0IHsgR3JpZENlbGwsIExheW91dExpbmUsIHNjZW5lcnkgfSBmcm9tICcuLi8uLi9pbXBvcnRzLmpzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEdyaWRMaW5lIGV4dGVuZHMgTGF5b3V0TGluZSB7XHJcblxyXG4gIC8vIChzY2VuZXJ5LWludGVybmFsKVxyXG4gIHB1YmxpYyBpbmRleCE6IG51bWJlcjtcclxuICBwdWJsaWMgY2VsbHMhOiBHcmlkQ2VsbFtdO1xyXG4gIHB1YmxpYyBncm93ITogbnVtYmVyO1xyXG5cclxuICAvKipcclxuICAgKiAoc2NlbmVyeS1pbnRlcm5hbClcclxuICAgKi9cclxuICBwdWJsaWMgY29uc3RydWN0b3IoIGluZGV4OiBudW1iZXIsIGNlbGxzOiBHcmlkQ2VsbFtdLCBncm93OiBudW1iZXIgKSB7XHJcbiAgICBzdXBlcigpO1xyXG5cclxuICAgIHRoaXMuaW5pdGlhbGl6ZSggaW5kZXgsIGNlbGxzLCBncm93ICk7XHJcbiAgfVxyXG5cclxuICAvKipcclxuICAgKiAoc2NlbmVyeS1pbnRlcm5hbClcclxuICAgKi9cclxuICBwdWJsaWMgaW5pdGlhbGl6ZSggaW5kZXg6IG51bWJlciwgY2VsbHM6IEdyaWRDZWxsW10sIGdyb3c6IG51bWJlciApOiB0aGlzIHtcclxuICAgIHRoaXMuaW5kZXggPSBpbmRleDtcclxuXHJcbiAgICB0aGlzLmNlbGxzID0gY2VsbHM7XHJcblxyXG4gICAgdGhpcy5ncm93ID0gZ3JvdztcclxuXHJcbiAgICB0aGlzLmluaXRpYWxpemVMYXlvdXRMaW5lKCk7XHJcblxyXG4gICAgcmV0dXJuIHRoaXM7XHJcbiAgfVxyXG5cclxuICAvKipcclxuICAgKiAoc2NlbmVyeS1pbnRlcm5hbClcclxuICAgKi9cclxuICBwdWJsaWMgZnJlZVRvUG9vbCgpOiB2b2lkIHtcclxuICAgIEdyaWRMaW5lLnBvb2wuZnJlZVRvUG9vbCggdGhpcyApO1xyXG4gIH1cclxuXHJcbiAgcHVibGljIGNsZWFuKCk6IHZvaWQge1xyXG4gICAgdGhpcy5jZWxscy5sZW5ndGggPSAwO1xyXG4gICAgdGhpcy5mcmVlVG9Qb29sKCk7XHJcbiAgfVxyXG5cclxuICAvKipcclxuICAgKiAoc2NlbmVyeS1pbnRlcm5hbClcclxuICAgKi9cclxuICBwdWJsaWMgc3RhdGljIHJlYWRvbmx5IHBvb2wgPSBuZXcgUG9vbCggR3JpZExpbmUsIHtcclxuICAgIGRlZmF1bHRBcmd1bWVudHM6IFsgMCwgW10sIDAgXVxyXG4gIH0gKTtcclxufVxyXG5cclxuc2NlbmVyeS5yZWdpc3RlciggJ0dyaWRMaW5lJywgR3JpZExpbmUgKTsiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsT0FBT0EsSUFBSSxNQUFNLGtDQUFrQztBQUNuRCxTQUFtQkMsVUFBVSxFQUFFQyxPQUFPLFFBQVEsa0JBQWtCO0FBRWhFLGVBQWUsTUFBTUMsUUFBUSxTQUFTRixVQUFVLENBQUM7RUFFL0M7O0VBS0E7QUFDRjtBQUNBO0VBQ1NHLFdBQVdBLENBQUVDLEtBQWEsRUFBRUMsS0FBaUIsRUFBRUMsSUFBWSxFQUFHO0lBQ25FLEtBQUssQ0FBQyxDQUFDO0lBRVAsSUFBSSxDQUFDQyxVQUFVLENBQUVILEtBQUssRUFBRUMsS0FBSyxFQUFFQyxJQUFLLENBQUM7RUFDdkM7O0VBRUE7QUFDRjtBQUNBO0VBQ1NDLFVBQVVBLENBQUVILEtBQWEsRUFBRUMsS0FBaUIsRUFBRUMsSUFBWSxFQUFTO0lBQ3hFLElBQUksQ0FBQ0YsS0FBSyxHQUFHQSxLQUFLO0lBRWxCLElBQUksQ0FBQ0MsS0FBSyxHQUFHQSxLQUFLO0lBRWxCLElBQUksQ0FBQ0MsSUFBSSxHQUFHQSxJQUFJO0lBRWhCLElBQUksQ0FBQ0Usb0JBQW9CLENBQUMsQ0FBQztJQUUzQixPQUFPLElBQUk7RUFDYjs7RUFFQTtBQUNGO0FBQ0E7RUFDU0MsVUFBVUEsQ0FBQSxFQUFTO0lBQ3hCUCxRQUFRLENBQUNRLElBQUksQ0FBQ0QsVUFBVSxDQUFFLElBQUssQ0FBQztFQUNsQztFQUVPRSxLQUFLQSxDQUFBLEVBQVM7SUFDbkIsSUFBSSxDQUFDTixLQUFLLENBQUNPLE1BQU0sR0FBRyxDQUFDO0lBQ3JCLElBQUksQ0FBQ0gsVUFBVSxDQUFDLENBQUM7RUFDbkI7O0VBRUE7QUFDRjtBQUNBO0VBQ0UsT0FBdUJDLElBQUksR0FBRyxJQUFJWCxJQUFJLENBQUVHLFFBQVEsRUFBRTtJQUNoRFcsZ0JBQWdCLEVBQUUsQ0FBRSxDQUFDLEVBQUUsRUFBRSxFQUFFLENBQUM7RUFDOUIsQ0FBRSxDQUFDO0FBQ0w7QUFFQVosT0FBTyxDQUFDYSxRQUFRLENBQUUsVUFBVSxFQUFFWixRQUFTLENBQUMiLCJpZ25vcmVMaXN0IjpbXX0=

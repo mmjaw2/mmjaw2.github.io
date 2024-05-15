@@ -1,0 +1,11 @@
+// Copyright 2016-2024, University of Colorado Boulder
+
+/**
+ * Creates the namespace for this simulation.
+ *
+ * @author Andrea Lin (PhET Interactive Simulations)
+ */
+
+import Namespace from '../../phet-core/js/Namespace.js';
+export default new Namespace('projectileMotion');
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJOYW1lc3BhY2UiXSwic291cmNlcyI6WyJwcm9qZWN0aWxlTW90aW9uLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE2LTIwMjQsIFVuaXZlcnNpdHkgb2YgQ29sb3JhZG8gQm91bGRlclxyXG5cclxuLyoqXHJcbiAqIENyZWF0ZXMgdGhlIG5hbWVzcGFjZSBmb3IgdGhpcyBzaW11bGF0aW9uLlxyXG4gKlxyXG4gKiBAYXV0aG9yIEFuZHJlYSBMaW4gKFBoRVQgSW50ZXJhY3RpdmUgU2ltdWxhdGlvbnMpXHJcbiAqL1xyXG5cclxuaW1wb3J0IE5hbWVzcGFjZSBmcm9tICcuLi8uLi9waGV0LWNvcmUvanMvTmFtZXNwYWNlLmpzJztcclxuXHJcbmV4cG9ydCBkZWZhdWx0IG5ldyBOYW1lc3BhY2UoICdwcm9qZWN0aWxlTW90aW9uJyApOyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPQSxTQUFTLE1BQU0saUNBQWlDO0FBRXZELGVBQWUsSUFBSUEsU0FBUyxDQUFFLGtCQUFtQixDQUFDIiwiaWdub3JlTGlzdCI6W119
